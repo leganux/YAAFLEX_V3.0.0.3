@@ -25,26 +25,29 @@ This framework works with:
 
 Includes support for:
 
-*API-REST (GET,PUT,POST,DELETE)
-*MVC
-*routing
-*Admin Panel (backoffice)
-*Front WEB
-*login using (user and password)
-*oauth login (instagram, google, facebok , twitter)
-*roles configurator
-*default queries function
-*auth autentification middleware
-*file manager
-*i18n internacionalization (texts for the moment only allowed on english and spanish)
-*Datatables
-*Botstrap
-*Easy change theme (configuration) Bootswatch themes
-*Email STMP Support
+* API-REST (GET,PUT,POST,DELETE)
+* MVC
+* routing
+* Admin Panel (backoffice) ADMINLTE3
+* Front WEB
+* login using (user and password)
+* oauth login (instagram, google, facebok , twitter)
+* roles configurator
+* default queries function
+* auth autentification middleware
+* file manager
+* i18n internacionalization (texts for the moment only allowed on english and spanish)
+* Datatables
+* Botstrap
+* Easy change theme (configuration) Bootswatch themes
+* Email STMP Support
 * let´s encrypt helper for SSL
 * TEXT2SPEECH and VOICE RECOGNITION
 * ASSETS Constructor
-*JWT
+* JWT
+* ServerSide datatables
+* World Countries, Cities, States Catalogues
+* User Data Client Tracking
 
 Included libraries.
 
