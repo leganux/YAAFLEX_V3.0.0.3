@@ -1,0 +1,35 @@
+
+.row
+        .col
+            nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+                a.navbar-brand(href=rootPath+'/') YAAFLEX
+                button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarColor01', aria-controls='navbarColor01', aria-expanded='false', aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarColor01.collapse.navbar-collapse
+                    ul.navbar-nav.mr-auto
+                        li.nav-item
+                            a.nav-link(href=rootPath+'/')
+                                | Home 
+                                
+                        li.nav-item
+                            a.nav-link(href=rootPath+'/blog') Blog
+                        li.nav-item
+                            a.nav-link(href=rootPath+'/chat') Chat
+                      
+
+                        if data.pages
+                            li.nav-item.dropdown
+                                a#navbardrop.nav-link.dropdown-toggle(href='#', data-toggle='dropdown')
+                                    | Dynamic Pages
+                                .dropdown-menu
+                                    each val in data.pages
+                                        a.dropdown-item(href=rootPath+'/page/'+val.f_name) #{val.title}
+                                    
+
+                        li.nav-item
+                            a.nav-link(target="_blank",href='http://erickcruz.leganux.com') About erick
+                        li.nav-item
+                            a.nav-link(target="_blank", href='https://leganux.com') About leganux
+                    form.form-inline.my-2.my-lg-0
+                        input.form-control.mr-sm-2(type='text', placeholder='Search')
+                        button.btn.btn-secondary.my-2.my-sm-0(type='submit') Search

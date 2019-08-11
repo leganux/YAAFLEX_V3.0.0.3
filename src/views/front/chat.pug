@@ -1,0 +1,55 @@
+doctype html
+html
+    head
+        include ./head.pug
+        
+        
+    body
+        include ./menu.pug
+        br
+        br
+        br
+        .container-fluid
+            .row
+                .col
+                .col
+                    .card.text-white.bg-secondary.mb-3
+                        .card-header 
+                            p(align="right") LX - Chat V.1.1.0 
+                        .card-body
+                            .card.border-info
+                                #append_here(style="height:500px; overflow-y:auto; overflow-x:hidden;")
+                               
+
+                        .card-footer
+                            .row
+                                .col-sm-8
+                                     textarea#msg( rows="2").form-control(placeholder="Write a message...")
+                                .col-sm-4
+                                    
+                                    br
+                                    button.btn.btn-block.btn-primary#Send_ Send 
+
+                           
+                .col
+    
+
+        //scriptsJS
+        include ./scripts.pug
+        script(src=config.path.AssetsSite+"/socket/socket.io.js")
+        script(src=config.path.AssetsSite+"/code/chat.js")
+
+      
+            
+
+    
+
+
+
+
+
+
+
+
+
+

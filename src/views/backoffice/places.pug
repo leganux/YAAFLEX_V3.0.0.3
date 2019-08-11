@@ -1,0 +1,64 @@
+doctype html
+html(lang='en')
+    head
+        include ./head.pug
+    body.sidebar-mini(style="heigth:auto;")
+        .wrapper
+            include ./navBarSuperiror.pug
+            include ./nav.pug
+        .content-wrapper(style="min-height: 898px;")
+            section.content-header
+                .container-fluid
+                    .row.mb-2
+                        .col-sm-6
+                            h3 Places
+                        .col-sm-6
+                            ol.breadcrumb.float-sm-right
+                                li.breadcrumb-item
+                                    a(href='#') Home
+                                li.breadcrumb-item.active Places
+            section.content
+                .card
+                    .card-header
+                        h5.car-title Countries
+
+                        .card-tools
+                            button.btn.btn-tool(type='button' data-widget='collapse' data-toggle='tooltip' title='Collapse')
+                                i.fas.fa-minus
+                            button.btn.btn-tool(type='button' data-widget='remove' data-toggle='tooltip' title='Remove')
+                                i.fas.fa-times
+                    .card-body
+                        .row
+                            .col-12.col-md-4
+                            .col-12.col-md-4
+                            .col-12.col-md-4
+
+                        br
+                        .row
+                            .col-12
+                                table#Table_of_Countries.display.table.table-striped.table-bordered.table-hover(width='100%')
+                                    thead
+                                        tr
+                                            th _id
+                                            th id
+                                            th sortname
+                                            th name
+                                            th phoneCode
+
+
+                    .card-footer
+                        p List of Countries
+
+
+        br
+
+        include ./footer.pug
+        include ./aside.pug
+
+        include ./scripts.pug
+        script(src=config.path.AssetsCP + '/code/js/places.js?v=' + Math.random())
+
+
+
+
+

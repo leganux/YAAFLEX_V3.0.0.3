@@ -1,0 +1,67 @@
+doctype html
+html(lang='en')
+    head
+        include ./head.pug
+    body.sidebar-mini(style="heigth:auto;")
+        .wrapper
+            include ./navBarSuperiror.pug
+            include ./nav.pug
+        .content-wrapper(style="min-height: 898px;")
+            section.content-header
+                .container-fluid
+                    .row.mb-2
+                        .col-sm-6
+                            h3 #{i18n.admin_title_file_manager}
+                        .col-sm-6
+                            ol.breadcrumb.float-sm-right
+                                li.breadcrumb-item
+                                    a(href='#') Home
+                                li.breadcrumb-item.active #{i18n.admin_title_file_manager}
+
+            section.content
+                .card
+                    .card-header
+                        h5.car-title #{i18n.admin_title_file_manager}
+
+                        .card-tools
+                            button.btn.btn-tool(type='button' data-widget='collapse' data-toggle='tooltip' title='Collapse')
+                                i.fas.fa-minus
+                            button.btn.btn-tool(type='button' data-widget='remove' data-toggle='tooltip' title='Remove')
+                                i.fas.fa-times
+                    .card-body
+                        .row
+                            .col-12.col-md-4
+                            .col-12.col-md-4
+                                input(type="file")#txt_file.form-control
+                            .col-12.col-md-4
+                                button#upload_file.btn.btn-block.btn-success.btn-outline #{i18n.admin_button_upload}
+                        br
+                        .row
+                            .col-12
+                                table#tbl_.display.table.table-striped.table-bordered.table-hover(width='100%')
+                                    thead
+                                        tr
+                                            th #{i18n.admin_file_manager_id}
+                                            th #{i18n.admin_file_manager_original}
+                                            th #{i18n.admin_file_manager_name}
+                                            th #{i18n.admin_file_manager_public_path}
+
+                                            th #{i18n.admin_file_manager_folder}
+                                            th #{i18n.admin_file_manager_actions}
+
+
+                    .card-footer
+                        p #{i18n.admin_title_files}
+
+
+
+        include ./footer.pug
+        include ./aside.pug
+        include ./scripts.pug
+        script(src=config.path.AssetsCP + '/code/js/FileManager.js?v=' + Math.random())
+
+
+
+
+
+

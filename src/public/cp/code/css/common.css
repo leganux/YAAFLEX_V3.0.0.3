@@ -1,0 +1,34 @@
+@font-face {
+    font-family: 'SplendidN'; /*a name to be used later*/
+    src: url('/cdn/assets/f/fonts/SplendidN.ttf'); /*URL to font*/
+}
+@font-face {
+    font-family: 'Travelling'; /*a name to be used later*/
+    src: url('/cdn/assets/f/fonts/TravelingTypewriter.ttf'); /*URL to font*/
+}
+@font-face {
+    font-family: 'SplendidB'; /*a name to be used later*/
+    src: url('/cdn/assets/f/fonts/SplendidB.ttf'); /*URL to font*/
+}
+@font-face {
+    font-family: 'Lemon'; /*a name to be used later*/
+    src: url('/cdn/assets/f/fonts/LemonMilklight.otf'); /*URL to font*/
+}
+
+
+
+
+.form-control-error{
+    border: 1px solid rgb(255, 0, 0);
+}
+
+.superaTam{
+    max-width: 1200px;
+    overflow-y: auto;
+}
+
+.superaTamMin{
+    max-width: 480px;
+    overflow-y: auto;
+}
+

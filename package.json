@@ -1,0 +1,43 @@
+{
+  "name": "yaaflex",
+  "version": "1.0.1",
+  "description": "yaaflex - yet another amazing framework by leganux",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "yaaflex": "nodemon src/index.js"
+  "keywords": [],
+  "author": "leganux.com, Angel Erick Cruz Olivera",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bcryptjs": "^2.4.3",
+    "check-disk-space": "^1.5.0",
+    "connect": "^3.6.6",
+    "connect-ensure-login": "^0.1.1",
+    "connect-redis": "^3.4.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "express-fileupload": "^1.1.1-alpha.1",
+    "express-session": "^1.15.6",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.4.15",
+    "mongoose-auto-increment": "^5.0.1",
+    "mongoose-datatables": "^3.2.0",
+    "morgan": "^1.9.1",
+    "nodemailer": "^5.1.1",
+    "passport": "^0.4.0",
+    "passport-facebook": "^3.0.0",
+    "passport-google-oauth": "^1.0.0",
+    "passport-instagram": "^1.0.0",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.4",
+    "pug": "^2.0.3",
+    "redis": "^2.8.0",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}

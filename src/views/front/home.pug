@@ -1,0 +1,113 @@
+doctype html
+html
+    head
+        include ./head.pug
+        
+        
+    body
+        include ./menu.pug
+        
+
+        br
+        br
+        br
+        hr
+        .container
+            .row
+                .col
+                    center
+
+                        h1 Welcome to v3.0.0.3 (M.E.N.JQ.B.BT)
+                        img(src=config.path.AssetsSite + config.assets.img.logo.path, alt="")
+                        h3 yet another amazing framework by leganux
+                        p &copy; 2007 -2019  
+                            a(href="https://leganux.com", target="_blank" ) leganux.com
+                        hr
+
+                        p This framework was made using 
+                        p NodeJS, Express, PUG, Mongoose, Nodemon, jQuery, Bootstrap, and Bootswatch themes
+                        p To acces admin panel go to 
+                            a(href=rootPath+"/lx_admin") /lx_admin
+                        b    user:password  
+                        br  
+                        |    admin:12345    
+                        p You'll can find all the documentation about this project on 
+                            a(href="http://docs.leganux.com", target="_blank") docs.leganux.com
+
+                        button.btn.btn-primary#activeVoice Say Hi! 
+            hr
+            .row
+                .col
+                    center
+                        h1 Examples
+            hr
+            .row
+                .col
+                    h3 Buttons
+                    button.btn.btn-primary(type='button') Primary
+                    button.btn.btn-secondary(type='button') Secondary
+                    button.btn.btn-success(type='button') Success
+                    button.btn.btn-info(type='button') Info
+                    button.btn.btn-warning(type='button') Warning
+                    button.btn.btn-danger(type='button') Danger
+                    button.btn.btn-link(type='button') Link
+                .col
+                    h3 Buttons outline
+                    button.btn.btn-outline-primary(type='button') Primary
+                    button.btn.btn-outline-secondary(type='button') Secondary
+                    button.btn.btn-outline-success(type='button') Success
+                    button.btn.btn-outline-info(type='button') Info
+                    button.btn.btn-outline-warning(type='button') Warning
+                    button.btn.btn-outline-danger(type='button') Danger
+                .col
+                    h3 Text
+                    h1 Heading 1
+                    h2 Heading 2
+                    h3 Heading 3
+                    h4 Heading 4
+                    h5 Heading 5
+                    h6 Heading 6
+                    h3
+                        | Heading
+                    small.text-muted with muted text
+                    p.lead Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+            
+                    
+
+
+
+                        
+
+       
+       
+
+        //scriptsJS
+        include ./scripts.pug
+        script.
+            $(document).ready(function(){
+                $('#activeVoice').click(function(){
+                const artyom = new Artyom();
+                artyom.say("Hey Welcome to Yaflex. Yet another amazing framework by leganux",{
+                onStart:function(){
+                console.log("The text is being readed");
+                },
+                onEnd:function(){
+                       artyom.say("This framework was made using NodeJS, Express, PUG, Mongoose, Nodemon, jQuery, Bootstrap, and Bootswatch themes.  To acces admin panel, go to slash lx_admin, using admin as user and 12345 as password.  You'll can find all the documentation about this project on docs.leganux.com soon"); 
+                    }
+                });
+                })
+            })
+            
+
+    
+
+
+
+
+
+
+
+
+
+

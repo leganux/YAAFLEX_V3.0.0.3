@@ -1,0 +1,143 @@
+
+doctype html
+html(lang='en')
+    head
+        include ./head.pug
+    body.sidebar-mini(style="heigth:auto;")
+        .wrapper
+            include ./navBarSuperiror.pug
+            include ./nav.pug
+        .content-wrapper(style="min-height: 898px;")
+            section.content-header
+                .container-fluid
+                    .row.mb-2
+                        .col-sm-6
+                            h3 #{i18n.admin_title_users }
+                        .col-sm-6
+                            ol.breadcrumb.float-sm-right
+                                li.breadcrumb-item
+                                    a(href='#') Home
+                                li.breadcrumb-item.active #{i18n.admin_title_users }
+            section.content
+                .card
+                    .card-header
+                        h5.car-title #{i18n.admin_title_users }
+
+                        .card-tools
+                            button.btn.btn-tool(type='button' data-widget='collapse' data-toggle='tooltip' title='Collapse')
+                                i.fas.fa-minus
+                            button.btn.btn-tool(type='button' data-widget='remove' data-toggle='tooltip' title='Remove')
+                                i.fas.fa-times
+                    .card-body
+                        .row
+                            .col-12.col-md-4
+                            .col-12.col-md-4
+                            .col-12.col-md-4
+                                button#nuevo_elemento.btn.btn-block.btn-success.btn-outline #{i18n.admin_button_new}
+                        br
+                        .row
+                            .col-12
+
+                                table#uslers__.display.table.table-striped.table-bordered.table-hover(width='100%')
+                                    thead
+                                        tr
+                                            th #{i18n.admin_users_username}
+                                            th #{i18n.admin_users_email}
+                                            th #{i18n.admin_users_password}
+                                            th #{i18n.admin_users_date_reg}
+                                            th #{i18n.admin_users_provider_id}
+                                            th #{i18n.admin_users_provider}
+                                            th #{i18n.admin_users_user_picture}
+                                            th #{i18n.admin_users_fullname}
+                                            th #{i18n.admin_users_role}
+                                            th #{i18n.admin_users_gender}
+                                            th #{i18n.admin_users_lang}
+                                            th #{i18n.admin_users_age}
+                                            th #{i18n.admin_users_phone}
+                                            th #{i18n.admin_users_cellphone}
+                                            th #{i18n.admin_users_bio}
+                                            th #{i18n.admin_users_country}
+                                            th #{i18n.admin_users_state}
+                                            th #{i18n.admin_users_city}
+                                            th #{i18n.admin_users_address}
+                                            th #{i18n.admin_users_zip_code}
+                                            th #{i18n.admin_users_social}
+                                            th #{i18n.admin_users_active}
+                                            th #{i18n.admin_users_actions}
+
+
+                    .card-footer
+                        p #{i18n.admin_users_list}
+
+
+        #myDataModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='basicModal', aria-hidden='true',data-backdrop="static", data-keyboard="false")
+            .modal-dialog(role='document')
+                .modal-content
+                    .modal-header
+                        h4#myModalLabel.modal-title #{i18n.admin_modal_save_edit}
+                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                            span(aria-hidden='true') &times;
+                    .modal-body
+                        .row
+                            .col-12.col-md-6
+
+                                label  #{i18n.admin_modal_add_username}
+                                input#txt_username.form-control(type="text", mandatory="true")
+                                label  #{i18n.admin_modal_add_email}
+                                input#txt_email.form-control(type="text", mandatory="true")
+                                label #{i18n.admin_modal_add_password}
+                                input#txt_password.form-control(type="password", mandatory="true")
+                                label #{i18n.admin_modal_add_rol}
+                                select#txt_role.form-control
+
+                                label #{i18n.admin_modal_add_fullname}
+                                input(type="text")#txt_fullname.form-control
+                                label #{i18n.admin_modal_add_gender}
+                                select#txt_gender.form-control
+                                    option(value="F") #{i18n.admin_modal_gender_female}
+                                    option(value="M") #{i18n.admin_modal_gender_male}
+                                    option(value="NB") #{i18n.admin_modal_gender_not_binary}
+                                label #{i18n.admin_modal_add_lang}
+                                select#txt_lang.form-control
+                                label #{i18n.admin_modal_add_age}
+                                input(type="number")#txt_age.form-control
+                            .col-12.col-md-6
+                                label #{i18n.admin_modal_add_phone}
+                                input(type="text")#txt_phone.form-control
+                                label #{i18n.admin_modal_add_cellphone}
+                                input(type="text")#txt_cellphone.form-control
+
+
+                                label #{i18n.admin_modal_add_country}
+                                select#txt_country.form-control
+
+                                label #{i18n.admin_modal_add_state}
+                                select#txt_state.form-control
+                                label #{i18n.admin_modal_add_city}
+                                select#txt_city.form-control
+
+                                label #{i18n.admin_modal_add_address}
+                                input(type="text")#txt_address.form-control
+                                label #{i18n.admin_modal_add_zipcode}
+                                input(type="text")#txt_zipcode.form-control
+
+                                label #{i18n.admin_modal_add_image}
+                                input(type="file")#txt_image.form-control
+                                input(type="text",style="display:none")#txt_image_save.form-control
+
+
+
+
+
+                    .modal-footer
+                        button#SaveChanges.btn.btn-primary(type='button') #{i18n.admin_modal_save}
+                        button.btn.btn-secondary(type='button' data-dismiss='modal') #{i18n.admin_modal_cancel}
+
+
+        include ./footer.pug
+        include ./aside.pug
+        include ./scripts.pug
+        script(src=config.path.AssetsCP+'/code/js/users.js?v='+Math.random())
+
+
+

@@ -1,0 +1,134 @@
+doctype html
+html(lang='en')
+    head
+        include ./head.pug
+    body.sidebar-mini(style="heigth:auto;")
+        .wrapper
+            include ./navBarSuperiror.pug
+            include ./nav.pug
+        .content-wrapper(style="min-height: 898px;")
+            section.content-header
+                .container-fluid
+                    .row.mb-2
+                        .col-sm-6
+                            #{i18n.admin_dashboard_about} YAAFLEX
+                        .col-sm-6
+                            ol.breadcrumb.float-sm-right
+                                li.breadcrumb-item
+                                    a(href='#') Home
+                                li.breadcrumb-item.active YAAFLEX
+            section.content
+                .card
+                    .card-header
+                        h5.car-title #{i18n.admin_dashboard_about} YAAFLEX
+                        .card-tools
+                            button.btn.btn-tool(type='button' data-widget='collapse' data-toggle='tooltip' title='Collapse')
+                                i.fas.fa-minus
+                            button.btn.btn-tool(type='button' data-widget='remove' data-toggle='tooltip' title='Remove')
+                                i.fas.fa-times
+                    .card-body
+                        center
+                            h1 Welcome to YAAFLEX v3.0.0.3 (M.E.N.JQ.B.BT)
+                            h3 yet another amazing framework by leganux
+                            p &copy; 2007 -2019
+                            a(href="https://leganux.com", target="_blank" )  Leganux.com
+                            hr
+                            p This framework was made using
+                            p NodeJS, Express, PUG, Mongoose, Nodemon, jQuery, Bootstrap, and Bootswatch themes
+                            hr
+                            p You'll can find all the documentation about this project on
+                                a(href="http://docs.leganux.com", target="_blank")  docs.leganux.com
+
+                        hr
+                        h5 #{i18n.admin_dashboard_about_app}
+                        hr
+                        h5 #{i18n.admin_dashboard_about_server}
+                        hr
+                        br
+                        .row
+                            .col-12.col-md-4
+                                .card.text-white.bg-primary
+                                    .card-body
+                                        .row
+                                            .col-lg-12.text-center
+
+                                                h5 Server time
+                                                h4#hereishourserver
+
+
+                            .col-12.col-md-4
+                                .card.text-white.bg-primary
+                                    .card-body
+                                        .row
+                                            .col-3
+                                                i.fa.fa-terminal.fa-5x
+                                            .col-9.text-right
+                                                h4#TotalMemory
+                                                div Total memory
+
+                            .col-12.col-md-4
+                                .card.text-white.bg-primary
+                                    .card-body
+                                        .row
+                                            .col-3
+                                                i.fas.fa-memory.fa-5x
+                                            .col-9.text-right
+                                                h4#FreeMemory
+                                                div Free memory
+                            .col-12.col-md-4
+                                .card.text-white.bg-primary
+                                    .card-body
+                                        .row
+                                            .col-3
+                                                i.far.fa-clock.fa-5x
+                                            .col-9.text-right
+                                                h4#Uptime 0
+                                                div Uptime
+                            .col-12.col-md-4
+                                .card.text-white.bg-primary
+                                    .card-body
+                                        .row
+                                            .col-3
+                                                i.fab.fa-cloudscale.fa-5x
+                                            .col-9.text-right
+                                                h4#freeDisk 0
+                                                div Free disk space
+                            .col-12.col-md-4
+                                .card.text-white.bg-primary
+                                    .card-body
+                                        .row
+                                            .col-3
+                                                i.fas.fa-compact-disc.fa-5x
+                                            .col-9.text-right
+                                                h4#TotalDisk 0
+                                                div Total disk space
+
+
+
+
+
+
+                        .row
+                            .col-lg-12
+
+                                h3 CPUS
+
+                                textarea.form-control( rows="5")#JSONCPUS
+                                br
+                    .card-footer
+                        h5 This version is powered by ADMINLTE 3.0
+
+
+
+
+
+
+
+
+
+        include ./footer.pug
+        include ./aside.pug
+        include ./scripts.pug
+        script(src=config.path.AssetsCP + '/code/js/dashboard.js?v=' + Math.random())
+
+

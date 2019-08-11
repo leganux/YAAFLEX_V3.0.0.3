@@ -1,0 +1,70 @@
+aside.main-sidebar.sidebar-dark-primary.bg-primary.navbar-dark.elevation-4
+    // Brand Logo
+    a.brand-link(href='#')
+        img.brand-image.img-circle.elevation-3(src='/web/cdn/assets/yaaflex.png' alt='' style='opacity: .8')
+        span.brand-text.font-weight-light YAAFLEX
+    // Sidebar
+    .sidebar
+        // Sidebar user (optional)
+        .user-panel.mt-3.pb-3.mb-3.d-flex
+            .image
+                img.img-circle.elevation-2(src='/web/cdn/assets/yaaflex.png' alt='')
+            .info
+                a.d-block(href='#') @leganux
+        // Sidebar Menu
+        nav.mt-2
+            ul.nav.nav-pills.nav-sidebar.flex-column(data-widget='treeview' role='menu' data-accordion='false')
+                li.nav-item.has-treeview
+                    a.nav-link(href='#')
+                        i.nav-icon.fas.fa-tachometer-alt
+                        p Dinamic Menu
+                            i.right.fas.fa-angle-left
+                    ul.nav.nav-treeview
+                        if config && config.menu
+                            each val in config.menu
+                                li.nav-item
+                                    a.nav-link(href=val.path)
+                                        i(class=val.icon)
+                                        p  &nbsp;  #{val.txt}
+
+                li.nav-header EXAMPLES
+                li.nav-item
+                    a.nav-link(href='#')
+                        i.nav-icon.far.fa-calendar-alt
+                        p
+                            | Calendar
+                            span.badge.badge-info.right 2
+
+                li.nav-header MISCELLANEOUS
+                li.nav-item
+                    a.nav-link( target="_blank" href='https://docs.leganux.com')
+                        i.nav-icon.fas.fa-file
+                        p Documentation
+                li.nav-header LABELS
+                li.nav-item
+                    a.nav-link(href='#')
+                        i.nav-icon.far.fa-circle.text-danger
+                        p.text Important
+                li.nav-item
+                    a.nav-link(href='#')
+                        i.nav-icon.far.fa-circle.text-warning
+                        p Warning
+                li.nav-item
+                    a.nav-link(href='#')
+                        i.nav-icon.far.fa-circle.text-info
+                        p Informational
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

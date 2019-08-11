@@ -1,0 +1,88 @@
+doctype html
+html(lang='en')
+    head
+        include ./head.pug
+    body.sidebar-mini(style="heigth:auto;")
+        .wrapper
+            include ./navBarSuperiror.pug
+            include ./nav.pug
+        .content-wrapper(style="min-height: 898px;")
+            section.content-header
+                .container-fluid
+                    .row.mb-2
+                        .col-sm-6
+                            h3 #{i18n.admin_title_admins }
+                        .col-sm-6
+                            ol.breadcrumb.float-sm-right
+                                li.breadcrumb-item
+                                    a(href='#') Home
+                                li.breadcrumb-item.active #{i18n.admin_title_admins }
+            section.content
+                .card
+                    .card-header
+                        h5.car-title #{i18n.admin_title_admins }
+
+                        .card-tools
+                            button.btn.btn-tool(type='button' data-widget='collapse' data-toggle='tooltip' title='Collapse')
+                                i.fas.fa-minus
+                            button.btn.btn-tool(type='button' data-widget='remove' data-toggle='tooltip' title='Remove')
+                                i.fas.fa-times
+                    .card-body
+                        .row
+                            .col-12.col-md-4
+                            .col-12.col-md-4
+                            .col-12.col-md-4
+                                button#nuevo_elemento.btn.btn-block.btn-success.btn-outline #{i18n.admin_button_new}
+                        br
+                        .row
+                            .col-12
+
+                                table#administradores.display.table.table-striped.table-bordered.table-hover(width='100%')
+                                    thead
+                                        tr
+                                            th #{i18n.admin_admins_username}
+                                            th #{i18n.admin_admins_email}
+                                            th #{i18n.admin_admins_password}
+                                            th #{i18n.admin_admins_date_reg}
+                                            th #{i18n.admin_admins_active}
+                                            th #{i18n.admin_admins_rol}
+                                            th #{i18n.admin_admins_actions}
+
+                    .card-footer
+                        p  #{i18n.admin_admins_list}
+
+
+        #myDataModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='basicModal', aria-hidden='true',data-backdrop="static", data-keyboard="false")
+            .modal-dialog(role='document')
+                .modal-content
+                    .modal-header
+                        h4#myModalLabel.modal-title #{i18n.admin_modal_save_edit}
+                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                            span(aria-hidden='true') &times;
+                    .modal-body
+                        #SaveToModal_ES.form-group
+                            label  #{i18n.admin_modal_add_username}
+                            input#txt_username.form-control(type="text", mandatory="true")
+                            label  #{i18n.admin_modal_add_email}
+                            input#txt_email.form-control(type="text", mandatory="true")
+                            label #{i18n.admin_modal_add_password}
+                            input#txt_password.form-control(type="password", mandatory="true")
+                            label #{i18n.admin_modal_is_active}
+                            select#txt_active.form-control
+                                option(value="true") true
+                                option(value="false") false
+                            label #{i18n.admin_modal_add_rol}
+                            select#txt_role.form-control
+
+                    .modal-footer
+                        button#SaveChanges.btn.btn-primary(type='button') #{i18n.admin_modal_save}
+                        button.btn.btn-secondary(type='button' data-dismiss='modal') #{i18n.admin_modal_cancel}
+
+
+        include ./footer.pug
+        include ./aside.pug
+        include ./scripts.pug
+        script(src=config.path.AssetsCP + '/code/js/administradores.js?v=' + Math.random())
+
+
+

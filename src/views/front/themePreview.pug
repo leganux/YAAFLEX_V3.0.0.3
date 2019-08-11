@@ -1,0 +1,113 @@
+doctype html
+html
+    head
+        include ./head.pug
+       
+
+    body
+        br
+        br
+        br
+        hr
+        .container
+            .row
+                .col
+                    #MyForm1
+
+
+
+
+        //scriptsJS
+        include ./scripts.pug
+        script.
+            var optionsJSON = {
+                formClass: 'form-group',
+                formMethod: 'POST',
+                enctype: 'multipart/form-data',
+                action: '#',
+                separator: '<br>',
+                textForSelect: 'Selecciona...',
+                textsErr: {
+                ErrMaxSize: 'El tamaño del archivo es mayor a _XX_ MB',
+                ErrFileAccept: 'El formato _XX_ es incorrecto o no es un archivo valido',
+                ErrMandatory: 'Este campo es obligatorio',
+                ErrUnique: 'La informacion  ya se encuentra  en otro campo',
+                ErrPatternAlph: 'Solo se permiten alphanumericos',
+                ErrPatternNumeric: 'Solo se permiten numericos',
+                ErrPattern: 'La informacion  no cincide con el patron',
+                ErrMinLength: 'El contenido por lo menos debe tener _XX_ caracteres de longitud',
+                ErrMaxLength: 'El contenido por lo mucho debe tener _XX_ caracteres de longitud',
+                ErrMinNum: 'El numero es menor a _XX_ ',
+                ErrMaxNum: 'El numero es mayor a  _XX_ ',
+                ErrIncludes: 'El contenido no incluye  _XX_ ',
+                ErrPass: 'El formato de contraseña es incorrecto ',
+                }
+                };
+                var formJSON = [
+                    {
+                    id: 'req1',
+                    label: 'Un requisito',
+                    class: 'form-control',
+                    type: 'file',
+                    maxtam: '1',
+                    accept: '.pdf',
+                    mandatory: true,
+                    unique: true,
+                    name: 'req1',
+                    style: '',
+                    pattern: 'alphanumeric',
+                    attrib: '',
+                    placeholder: 'Inserta Datos ',
+                    options: {
+                    validateOn: ['Change'],
+                    skipUntilEndValidation: ['mandatory'],
+                    getDataAs: 'text'
+                    }
+                    },
+                          {
+                    id: 'req7',
+                    label: 'Mete el Password',
+                    class: 'form-control',
+                    type: 'password',
+                    mandatory: true,
+                    unique: true,
+                    name: 'req5',
+                    style: '',
+                    minLength: 0,
+                    maxLength: 10,
+                    placeholder: 'Mete algo',
+                    minNumEspChar: 1,
+                    minNumAlph: 1,
+                    minNumNum: 1,
+                    options:
+                    {
+                    disableCopyPaste: true,
+                    validateOn: ['keyUp'],
+                    skipUntilEndValidation: ['mandatory'],
+                    skipAtEndValidation: ['pattern'],
+                    forceLimits: true,
+                    toUpperCase: false,
+                    toLowerCase: true
+                    }
+                    }
+                
+
+                    ];
+                var Form1 = new iForm('#MyForm1', formJSON, optionsJSON);
+                Form1.drawForm()
+                Form1.inicialize()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

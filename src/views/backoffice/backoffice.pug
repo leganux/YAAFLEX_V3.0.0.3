@@ -1,0 +1,38 @@
+
+
+doctype html
+head
+    include ./head.pug
+.login-box
+    .login-logo
+        img.img-fluid(src="/web/cdn/assets/yaaflex.png")
+        br
+        a(href=rootPath)
+            b YAAFLEX
+
+
+    .card
+        .card-body.login-card-body
+            p.login-box-msg Sign in to start your session
+            form(role='form' action=rootPath+"/auth/admin" method="POST")
+                .input-group.mb-3
+                    input.form-control(id="getUser_", placeholder='User', name='user', type='text', autofocus='')
+                    .input-group-append
+                        .input-group-text
+                            span.fas.fa-envelope
+                .input-group.mb-3
+                    input.form-control(id="getPassword_", placeholder='Password', name='password', type='password', value='')
+                    .input-group-append
+                        .input-group-text
+                            span.fas.fa-lock
+                input.btn.btn-lg.btn-success.btn-block( type="submit" value="login")
+
+            p.mb-1
+                a(href='#') I forgot my password
+            p.mb-0
+                a.text-center(href='#') Register a new membership
+        // /.login-card-body
+include ./scripts.pug
+
+
+       

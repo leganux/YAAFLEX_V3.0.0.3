@@ -1,0 +1,23 @@
+nav.main-header.navbar.navbar-expand.bg-primary.navbar-dark
+    // Left navbar links
+    ul.navbar-nav
+        li.nav-item
+            a.nav-link(data-widget='pushmenu' href='#')
+                i.fas.fa-bars
+        li.nav-item.d-none.d-sm-inline-block
+            a.nav-link(href='#') Home
+        li.nav-item.d-none.d-sm-inline-block
+            a.nav-link(href='#') Contact
+    // SEARCH FORM
+    form.form-inline.ml-3
+        .input-group.input-group-sm
+            input.form-control.form-control-navbar(type='search' placeholder='Search' aria-label='Search')
+            .input-group-append
+                button.btn.btn-navbar(type='submit')
+                    i.fas.fa-search
+    // Right navbar links
+    ul.navbar-nav.ml-auto
+
+        li.nav-item
+            a.nav-link(data-widget='control-sidebar' data-slide='true' href='#')
+                i.fas.fa-th-large

@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"project.client_datas"},{"v":2,"unique":true,"key":{"number":1},"name":"number_1","ns":"project.client_datas","background":true}],"uuid":"addb265e64894cd6807e78b0a11035c6"}
