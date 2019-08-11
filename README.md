@@ -8,20 +8,20 @@ to get more info visit. https://leganux.com or http://docs.leganux.com
 This is a framework, that helps developers to bulid simple and complex aplications using and amazing help and estructure.
 
 Dependences 
-*nodeJS
-*npm or yarn
-*mongoDB
-*redis server (optional)
+* nodeJS
+* npm or yarn
+* mongoDB
+* redis server (optional)
 
 
 This framework works with:
 
-*NodeJS
-*express
-*mongoose
-*PUG
-*JS leganux functions
-*jQuery
+* NodeJS
+* express
+* mongoose
+* PUG
+* JS leganux functions
+* jQuery
 
 Includes support for:
 
@@ -51,19 +51,19 @@ Includes support for:
 
 Included libraries.
 
-*Bootsrap
-*Animate
-*Select2
-*Datatales
-*Summernote
-*ChartJS
-*Global functions
-*HoldOn
-*Context Menu
-*Fa icons
+* Bootsrap
+* Animate
+* Select2
+* Datatales
+* Summernote
+* ChartJS
+* Global functions
+* HoldOn
+* Context Menu
+* Fa icons
 * Moment
 * Alertify
-*Artyom
+* Artyom
 
 More soon...
 
