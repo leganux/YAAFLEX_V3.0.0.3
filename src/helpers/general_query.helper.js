@@ -281,6 +281,7 @@ module.exports = function (router, OBJModel, _Population, CheckSession, _Special
     // GET  one  object by ID
     router.get('/:id', CheckSession, async (req, res) => {
         let query = OBJModel.findById(req.params.id);
+
         if (_Population && _Population.length > 0) {
             _Population.map(function (item, i, arr) {
                 query.populate(item)

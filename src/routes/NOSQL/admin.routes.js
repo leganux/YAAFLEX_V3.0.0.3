@@ -1,19 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const CheckSession = require('./../auth/checkSession')
-const BuildBasicQueries = require('./../helpers/general_query.helper')
-var env = require('./../config/environment.config')
+const CheckSession = require('../../auth/checkSession')
+const BuildBasicQueries = require('../../helpers/general_query.helper')
+var env = require('../../config/environment.config')
 const saltRounds = env.bcrypt_salt_rounds;
 const moment = require('moment');
 const bcrypt = require('bcryptjs');
 
 
 //Model
-const OBJModel = require('./../models/NOSQL/admin');
+const OBJModel = require('../../models/NOSQL/admin');
 
 //Other Models
 
-const AdminRoles = require('./../models/NOSQL/admin_roles.model');
+const AdminRoles = require('../../models/NOSQL/admin_roles.model');
 
 //population
 const _Population = [

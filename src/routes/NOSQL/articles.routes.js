@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const CheckSession = require('./../auth/checkSession')
-const BuildBasicQueries = require('./../helpers/general_query.helper')
+const CheckSession = require('../../auth/checkSession')
+const BuildBasicQueries = require('../../helpers/general_query.helper')
 const moment = require('moment')
 
 
 //Model
-const OBJModel = require('./../models/NOSQL/articles.model');
+const OBJModel = require('../../models/NOSQL/articles.model');
 
 //Other Models
-const User = require('./../models/NOSQL/user.model')
+const User = require('../../models/NOSQL/user.model')
 //population
 const _Population = [{
     path: 'autor',

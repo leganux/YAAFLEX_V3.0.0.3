@@ -2,20 +2,21 @@ const express = require('express');
 const router = express.Router();
 
 
-router.use('/admin_roles', require('./admin_roles.routes'));
-router.use('/user_roles', require('./user_roles.routes'));
-router.use('/admin', require('./admin.routes'));
-router.use('/user', require('./user.routes'));
-router.use('/country', require('./country.routes'));
-router.use('/state', require('./state.routes'));
-router.use('/city', require('./city.routes'));
-router.use('/i18n', require('./lang.routes'));
-router.use('/user_routes', require('./user_access_routes.routes'));
-router.use('/admin_routes', require('./admin_access_routes.routes'));
-router.use('/file_admin', require('./fileAdmin.routes'));
-router.use('/article', require('./articles.routes'));
-router.use('/dPage', require('./dinamic_pages.routes'));
-router.use('/server_statistics', require('./serverdata.routes'));
-router.use('/client_data', require('./client_data.routes'));
+router.use('/admin_roles', require('./NOSQL/admin_roles.routes'));
+router.use('/user_roles', require('./NOSQL/user_roles.routes'));
+router.use('/admin', require('./NOSQL/admin.routes'));
+router.use('/user', require('./NOSQL/user.routes'));
+router.use('/country', require('./NOSQL/country.routes'));
+router.use('/state', require('./NOSQL/state.routes'));
+router.use('/city', require('./NOSQL/city.routes'));
+router.use('/i18n', require('./NOSQL/lang.routes'));
+router.use('/user_routes', require('./NOSQL/user_access_routes.routes'));
+router.use('/admin_routes', require('./NOSQL/admin_access_routes.routes'));
+router.use('/file_admin', require('./NOSQL/fileAdmin.routes'));
+router.use('/article', require('./NOSQL/articles.routes'));
+router.use('/dPage', require('./NOSQL/dinamic_pages.routes'));
+router.use('/server_statistics', require('./NOSQL/serverdata.routes'));
+router.use('/client_data', require('./NOSQL/client_data.routes'));
+router.use('/functions', require('./SQL/api_scriptis.routes'));
 
 module.exports = router;

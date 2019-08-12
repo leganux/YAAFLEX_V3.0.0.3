@@ -1,23 +1,37 @@
 const Sequelize = require('sequelize');
-const Model = Sequelize.Model;
+
 const DB = require('./../../sql_db');
 
 
-const api_scripts = DB.define('user', {
+const api_scripts = DB.define('api_scrips', {
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    },
     method: {
         type: Sequelize.STRING,
         allowNull: false
     },
     code: {
-        type: Sequelize.STRING
-
+        type: Sequelize.TEXT
     },
-    code: {
-        type: Sequelize.STRING
-    }
+    route_name: {
+        type: Sequelize.STRING,
+        unique: true,
+        allowNull: false
+    },
+    params: {
+        type: Sequelize.STRING,
+    },
+    createdAt: Sequelize.DATE,
+    updatedAt: Sequelize.DATE,
 }, {
     // options
 });
 
+api_scripts.sync().then(() => {
+    console.log('** Tabla creada con exito!!');
+});
 
 module.exports = api_scripts;

@@ -20,7 +20,7 @@ module.exports = {
     active_socket: true,
     socket_port: 3000,
     sql_db_flavor: 'sqlite',// sqlite, mysql,mariadb,
-    sqlite_db_path: 'sqlite_db',
+    sqlite_db_path: 'sqlite_db/main.sqlite',
     db_user: '',
     db_password: '',
     db_database: '',

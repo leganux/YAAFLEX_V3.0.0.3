@@ -1,11 +1,11 @@
 doctype html
 html(lang='en')
     head
-        include ./head.pug
+        include template/head
     body.sidebar-mini(style="heigth:auto;")
         .wrapper
-            include ./navBarSuperiror.pug
-            include ./nav.pug
+            include template/navBarSuperiror
+            include template/nav
         .content-wrapper(style="min-height: 898px;")
             section.content-header
                 .container-fluid
@@ -55,9 +55,9 @@ html(lang='en')
 
 
 
-        include ./footer.pug
-        include ./aside.pug
-        include ./scripts.pug
+        include template/footer
+        include template/aside
+        include template/scripts
         script(src=config.path.AssetsCP + '/code/js/FileManager.js?v=' + Math.random())
 
 

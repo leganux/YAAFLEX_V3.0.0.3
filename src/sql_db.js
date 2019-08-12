@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const env = require('./config/environment.config');
+const path = require('path');
 var SQLDB = {}
 
 var dir_sqlite = path.join(__dirname, env.sqlite_db_path)
@@ -9,10 +10,7 @@ if (env.sql_db_flavor == 'sqlite') {
         storage: dir_sqlite,
         dialect: env.sql_db_flavor
     });
-
-
 } else {
-
     SQLDB = new Sequelize(env.db_database, env.db_user, env.db_password, {
         host: env.db_host,
         dialect: dv.sql_db_flavor

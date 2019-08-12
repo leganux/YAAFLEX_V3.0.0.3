@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const CheckSession = require('./../auth/checkSession')
-const BuildBasicQueries = require('./../helpers/general_query.helper')
+const CheckSession = require('../../auth/checkSession')
+const BuildBasicQueries = require('../../helpers/general_query.helper')
 
 
 //Model
-const OBJModel = require('./../models/NOSQL/lang.model');
+const OBJModel = require('../../models/NOSQL/lang.model');
 
 //Other Models
 

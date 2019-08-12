@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const CheckSession = require('./../auth/checkSession')
-const BuildBasicQueries = require('./../helpers/general_query.helper')
+const CheckSession = require('../../auth/checkSession')
+const BuildBasicQueries = require('../../helpers/general_query.helper')
 
 
 //Model
-const OBJModel = require('./../models/NOSQL/countries.model');
+const OBJModel = require('../../models/NOSQL/cities.model');
 
 //Other Models
 
@@ -16,7 +16,7 @@ const _Special = {}
 
 const _addData = {}
 
-BuildBasicQueries(router, OBJModel, _Population, CheckSession, _Special, _addData)
+BuildBasicQueries(router, OBJModel, false, CheckSession, false, false)
 
 router.post('/datatable', CheckSession, async (req, res) => {
 
@@ -38,7 +38,7 @@ router.post('/datatable', CheckSession, async (req, res) => {
         skip: req.body.start,
         search: {
             value: req.body.search.value,
-            fields: ['name', 'sortname']
+            fields: ['name', 'state_id']
         },
         sort: order
     }).then(function (table) {
@@ -49,6 +49,5 @@ router.post('/datatable', CheckSession, async (req, res) => {
         res.status(200).json(table); // table.total, table.data
     })
 });
-
 
 module.exports = router;

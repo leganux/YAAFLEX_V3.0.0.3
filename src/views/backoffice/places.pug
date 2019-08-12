@@ -1,11 +1,11 @@
 doctype html
 html(lang='en')
     head
-        include ./head.pug
+        include template/head
     body.sidebar-mini(style="heigth:auto;")
         .wrapper
-            include ./navBarSuperiror.pug
-            include ./nav.pug
+            include template/navBarSuperiror
+            include template/nav
         .content-wrapper(style="min-height: 898px;")
             section.content-header
                 .container-fluid
@@ -50,12 +50,78 @@ html(lang='en')
                         p List of Countries
 
 
+            br
+            section.content
+                .card
+                    .card-header
+                        h5.car-title States
+
+                        .card-tools
+                            button.btn.btn-tool(type='button' data-widget='collapse' data-toggle='tooltip' title='Collapse')
+                                i.fas.fa-minus
+                            button.btn.btn-tool(type='button' data-widget='remove' data-toggle='tooltip' title='Remove')
+                                i.fas.fa-times
+                    .card-body
+                        .row
+                            .col-12.col-md-4
+                            .col-12.col-md-4
+                            .col-12.col-md-4
+
+                        br
+                        .row
+                            .col-12
+                                table#Table_of_States.display.table.table-striped.table-bordered.table-hover(width='100%')
+                                    thead
+                                        tr
+                                            th _id
+                                            th id
+                                            th name
+                                            th country id
+
+
+                    .card-footer
+                        p List of Sates
+
+
+            br
+            section.content
+                .card
+                    .card-header
+                        h5.car-title Cities
+
+                        .card-tools
+                            button.btn.btn-tool(type='button' data-widget='collapse' data-toggle='tooltip' title='Collapse')
+                                i.fas.fa-minus
+                            button.btn.btn-tool(type='button' data-widget='remove' data-toggle='tooltip' title='Remove')
+                                i.fas.fa-times
+                    .card-body
+                        .row
+                            .col-12.col-md-4
+                            .col-12.col-md-4
+                            .col-12.col-md-4
+
+                        br
+                        .row
+                            .col-12
+                                table#Table_of_Cities.display.table.table-striped.table-bordered.table-hover(width='100%')
+                                    thead
+                                        tr
+                                            th _id
+                                            th id
+                                            th name
+                                            th state id
+
+
+                    .card-footer
+                        p List of Cities
+
+
         br
 
-        include ./footer.pug
-        include ./aside.pug
+        include template/footer
+        include template/aside
 
-        include ./scripts.pug
+        include template/scripts
         script(src=config.path.AssetsCP + '/code/js/places.js?v=' + Math.random())
 
 

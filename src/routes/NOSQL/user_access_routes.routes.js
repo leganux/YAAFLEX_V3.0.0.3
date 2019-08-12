@@ -1,23 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const CheckSession = require('./../auth/checkSession')
-const BuildBasicQueries = require('./../helpers/general_query.helper')
-var env = require('./../config/environment.config')
+const CheckSession = require('../../auth/checkSession')
+const BuildBasicQueries = require('../../helpers/general_query.helper')
+var env = require('../../config/environment.config')
 const saltRounds = env.bcrypt_salt_rounds;
 const moment = require('moment');
 const bcrypt = require('bcryptjs');
 
 
 //Model
-const OBJModel = require('./../models/NOSQL/routes_access_admin.model');
+const OBJModel = require('../../models/NOSQL/routes_access_user.model');
 
 //Other Models
 
-const rolesAdmin = require('./../models/NOSQL/admin_roles.model');
+const rolesUser = require('../../models/NOSQL/user_roles.model');
 //population
 const _Population = [{
     path: 'roles',
-    model: rolesAdmin
+    model: rolesUser
 }];
 
 const _Special = {
