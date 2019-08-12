@@ -13,6 +13,10 @@ const api_scripts = DB.define('api_scrips', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    description: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
     code: {
         type: Sequelize.TEXT
     },
@@ -31,7 +35,7 @@ const api_scripts = DB.define('api_scrips', {
 });
 
 api_scripts.sync().then(() => {
-    console.log('** Tabla creada con exito!!');
+    console.log('** Table was created!!');
 });
 
 module.exports = api_scripts;

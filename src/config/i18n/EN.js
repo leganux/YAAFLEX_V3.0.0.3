@@ -177,7 +177,18 @@ module.exports = {
 
     button_read_more: 'Read More...',
     admin_menu_places: 'Places',
+    admin_menu_functions: 'API Functions ',
 
+    admin_fnc_id: 'ID',
+    admin_fnc_method: 'Method',
+    admin_fnc_description: 'Description',
+    admin_fnc_code: 'Code',
+    admin_fnc_route: 'Rote Name',
+    admin_fnc_params: 'Parameters',
+    admin_fnc_created: 'Created Date',
+    admin_fnc_updated: 'Updated Date ',
+    admin_fnc_actions: 'Actions ',
+    admin_title_fnc_list: 'List of API Functions ',
 
 
 }

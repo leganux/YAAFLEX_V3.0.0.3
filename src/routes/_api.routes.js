@@ -18,5 +18,6 @@ router.use('/dPage', require('./NOSQL/dinamic_pages.routes'));
 router.use('/server_statistics', require('./NOSQL/serverdata.routes'));
 router.use('/client_data', require('./NOSQL/client_data.routes'));
 router.use('/functions', require('./SQL/api_scriptis.routes'));
+router.use('/function', require('./SQL/api_functions.routes'));
 
 module.exports = router;

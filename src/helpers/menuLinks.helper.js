@@ -62,6 +62,11 @@ var Menu = {
             name: 'admin_menu_places'
         },
         {
+            path: env.root + '/lx_admin/api_functions',
+            icon: 'fas fa-atom fa-fw',
+            name: 'admin_menu_functions'
+        },
+        {
             path: env.root + '/logout',
             icon: 'fas fa-sign-out-alt fa-fw',
             name: 'admin_menu_logout'

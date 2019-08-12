@@ -1,0 +1,107 @@
+doctype html
+html(lang='en')
+    head
+        include template/head
+        link(rel="stylesheet",href=config.path.AssetsCP + '/vendor/codemirror/lib/codemirror.css')
+        link(rel="stylesheet",href=config.path.AssetsCP + '/vendor/codemirror/theme/dracula.css')
+    body.sidebar-mini(style="heigth:auto;")
+        .wrapper
+            include template/navBarSuperiror
+            include template/nav
+        .content-wrapper(style="min-height: 898px;")
+            section.content-header
+                .container-fluid
+                    .row.mb-2
+                        .col-sm-6
+                            h3 #{i18n.admin_menu_functions}
+                        .col-sm-6
+                            ol.breadcrumb.float-sm-right
+                                li.breadcrumb-item
+                                    a(href='#') Home
+                                li.breadcrumb-item.active #{i18n.admin_menu_functions}
+            section.content
+                .card
+                    .card-header
+                        h5.car-title #{i18n.admin_menu_functions}
+
+                        .card-tools
+                            button.btn.btn-tool(type='button' data-widget='collapse' data-toggle='tooltip' title='Collapse')
+                                i.fas.fa-minus
+                            button.btn.btn-tool(type='button' data-widget='remove' data-toggle='tooltip' title='Remove')
+                                i.fas.fa-times
+                    .card-body
+                        .row
+                            .col-12.col-md-4
+                            .col-12.col-md-4
+                            .col-12.col-md-4
+                                button#nuevo_elemento.btn.btn-block.btn-success.btn-outline #{i18n.admin_button_new}
+                        br
+                        .row
+                            .col-12
+                                table#Table_of_functions.display.table.table-striped.table-bordered.table-hover(width='100%')
+                                    thead
+                                        tr
+                                            th #{i18n.admin_fnc_id}
+                                            th #{i18n.admin_fnc_method}
+                                            th #{i18n.admin_fnc_description}
+                                            th #{i18n.admin_fnc_code}
+                                            th #{i18n.admin_fnc_route}
+                                            //th #{i18n.admin_fnc_params}
+                                            th #{i18n.admin_fnc_created}
+                                            th #{i18n.admin_fnc_updated}
+                                            th #{i18n.admin_fnc_actions}
+
+
+
+
+                    .card-footer
+                        p #{i18n.admin_title_fnc_list}
+
+
+        br
+        #myDataModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='basicModal', aria-hidden='true',data-backdrop="static", data-keyboard="false")
+            .modal-dialog.modal-xl
+                .modal-content
+                    .modal-header
+                        h4#myModalLabel.modal-title #{i18n.admin_modal_save_edit}
+                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                            span(aria-hidden='true') &times;
+                    .modal-body
+                        label  #{i18n.admin_fnc_method}
+                        select.form-control#txt_method
+                            option(value='POST') POST
+                            option(value='GET') GET
+                        br
+                        label  #{i18n.admin_fnc_description}
+                        input#txt_description.form-control(type="text")
+                        br
+                        label  #{i18n.admin_fnc_route}
+                        input#txt_route.form-control(type="text")
+                        br
+
+                        input#txt_params.form-control(type="text",style="display:none")
+                        br
+
+                        label  #{i18n.admin_fnc_code}
+                        textarea#code(name="code") function (){}
+
+
+                    .modal-footer
+                        button#SaveChanges.btn.btn-primary(type='button') #{i18n.admin_modal_save}
+                        button.btn.btn-secondary(type='button' data-dismiss='modal') #{i18n.admin_modal_cancel}
+
+
+        include template/footer
+        include template/aside
+
+        include template/scripts
+        script(src=config.path.AssetsCP + '/vendor/codemirror/lib/codemirror.js')
+        script(src=config.path.AssetsCP + '/vendor/codemirror/mode/javascript/javascript.js')
+        script(src=config.path.AssetsCP + '/vendor/codemirror/addon/selection/active-line.js')
+        script(src=config.path.AssetsCP + '/vendor/codemirror/addon/edit/matchbrackets.js')
+        script(src=config.path.AssetsCP + '/code/js/api_functions.js?v=' + Math.random())
+
+
+
+
+

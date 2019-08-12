@@ -161,6 +161,9 @@ module.exports = function (router, Model, CheckSession) {
                 if (json[key] === false) {
                     newObject[key] = false;
                 }
+                if (json[key] =='') {
+                    newObject[key] = ' ';
+                }
             }
         }
 
