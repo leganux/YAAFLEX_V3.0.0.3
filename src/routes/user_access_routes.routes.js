@@ -9,11 +9,11 @@ const bcrypt = require('bcryptjs');
 
 
 //Model
-const OBJModel = require('./../models/routes_access_user.model');
+const OBJModel = require('./../models/NOSQL/routes_access_user.model');
 
 //Other Models
 
-const rolesUser = require('./../models/user_roles.model');
+const rolesUser = require('./../models/NOSQL/user_roles.model');
 //population
 const _Population = [{
     path: 'roles',

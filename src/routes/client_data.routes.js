@@ -6,7 +6,7 @@ const moment = require('moment')
 
 
 //Model
-const OBJModel = require('./../models/client_data.model');
+const OBJModel = require('./../models/NOSQL/client_data.model');
 
 //Other Models
 

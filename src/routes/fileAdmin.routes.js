@@ -5,7 +5,7 @@ const BuildBasicQueries = require('./../helpers/general_query.helper')
 const fs = require('fs')
 
 //Model
-const OBJModel = require('./../models/fileAdmin.model');
+const OBJModel = require('./../models/NOSQL/fileAdmin.model');
 
 //Other Models
 

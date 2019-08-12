@@ -4,7 +4,7 @@ const RoutesConfig = require('./../config/routes.config');
 const CheckSession = require('./../auth/checkSession')
 const moment = require('moment');
 
-const FM = require('./../models/fileAdmin.model');
+const FM = require('./../models/NOSQL/fileAdmin.model');
 
 var fs = require('fs');
 const path = require('path');

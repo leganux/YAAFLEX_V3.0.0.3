@@ -6,10 +6,10 @@ const moment = require('moment')
 
 
 //Model
-const OBJModel = require('./../models/articles.model');
+const OBJModel = require('./../models/NOSQL/articles.model');
 
 //Other Models
-const User = require('./../models/user.model')
+const User = require('./../models/NOSQL/user.model')
 //population
 const _Population = [{
     path: 'autor',

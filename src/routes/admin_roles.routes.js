@@ -9,7 +9,7 @@ const bcrypt = require('bcryptjs');
 
 
 //Model
-const OBJModel = require('./../models/admin_roles.model');
+const OBJModel = require('./../models/NOSQL/admin_roles.model');
 
 //Other Models
 

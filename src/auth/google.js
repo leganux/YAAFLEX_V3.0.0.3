@@ -3,7 +3,7 @@ const router = express.Router();
 var passport = require('passport');
 var Strategy = require('passport-google-oauth').OAuth2Strategy;
 let gooConfig = require('./../config/google.config');
-const User = require('./../models/user.model');
+const User = require('./../models/NOSQL/user.model');
 const moment = require('moment');
 const env =require('./../config/environment.config')
 

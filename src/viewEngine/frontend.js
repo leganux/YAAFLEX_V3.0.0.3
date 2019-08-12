@@ -7,8 +7,8 @@ const env = require('./../config/environment.config')
 const cFunctions = require('./../helpers/common.functions')
 const assets = require('./../config/assets_site.config');
 
-const dPage = require('./../models/dinamic_pages.model');
-const Article = require('./../models/articles.model');
+const dPage = require('./../models/NOSQL/dinamic_pages.model');
+const Article = require('./../models/NOSQL/articles.model');
 
 // help function to get the dinamyc pages
 const GetPages = function (F_) {

@@ -104,18 +104,18 @@ if (env.activeSSL) {
     };
     https.createServer(credentials, app)
         .listen(env.ssl_port, function () {
-            console.log('Https Server started at ' + env.ssl_port)
+            console.log('Https Server started at ' + env.ssl_port + env.root + '/')
         })
 
     Server_ = http.createServer(app)
         .listen(env.no_ssl_port, function () {
-            console.log('Http server start at ' + env.no_ssl_port)
+            console.log('Http server start at ' + env.no_ssl_port + env.root + '/')
         })
 
 } else {
     Server_ = http.createServer(app)
         .listen(env.no_ssl_port, function () {
-            console.log('Http server start at port ' + env.no_ssl_port)
+            console.log('Http server start at ' + env.no_ssl_port + env.root + '/')
         })
 }
 
@@ -168,7 +168,6 @@ if (env.active_socket) {
 
         });
 }
-
 
 
 // error VIEWS

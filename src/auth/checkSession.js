@@ -1,9 +1,9 @@
 var originRedirect = '/';
-const AdminAccess = require('./../models/routes_access_admin.model');
-const UserAccess = require('./../models/routes_access_user.model');
+const AdminAccess = require('./../models/NOSQL/routes_access_admin.model');
+const UserAccess = require('./../models/NOSQL/routes_access_user.model');
 
-const UserRoles = require('./../models/user_roles.model');
-const AdminRoles = require('./../models/admin_roles.model')
+const UserRoles = require('./../models/NOSQL/user_roles.model');
+const AdminRoles = require('./../models/NOSQL/admin_roles.model')
 const env = require('./../config/environment.config')
 
 

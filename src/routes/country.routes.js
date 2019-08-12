@@ -5,7 +5,7 @@ const BuildBasicQueries = require('./../helpers/general_query.helper')
 
 
 //Model
-const OBJModel = require('./../models/countries.model');
+const OBJModel = require('./../models/NOSQL/countries.model');
 
 //Other Models
 

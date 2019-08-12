@@ -1,7 +1,7 @@
 var func = {}
 
-const RotesUser = require('./../models/routes_access_user.model')
-const RotesAdmin = require('./../models/routes_access_admin.model')
+const RotesUser = require('./../models/NOSQL/routes_access_user.model')
+const RotesAdmin = require('./../models/NOSQL/routes_access_admin.model')
 const env = require('./../config/environment.config')
 
 var Menu = {
