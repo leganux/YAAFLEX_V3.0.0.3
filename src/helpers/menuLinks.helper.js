@@ -67,6 +67,11 @@ var Menu = {
             name: 'admin_menu_functions'
         },
         {
+            path: env.root + '/lx_admin/cron_functions',
+            icon: 'fas fa-history fa-fw',
+            name: 'admin_menu_cron_functions'
+        },
+        {
             path: env.root + '/logout',
             icon: 'fas fa-sign-out-alt fa-fw',
             name: 'admin_menu_logout'

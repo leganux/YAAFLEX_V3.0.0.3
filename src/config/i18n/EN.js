@@ -189,6 +189,22 @@ module.exports = {
     admin_fnc_updated: 'Updated Date ',
     admin_fnc_actions: 'Actions ',
     admin_title_fnc_list: 'List of API Functions ',
+    admin_menu_cron_functions: 'Cron functions',
+
+    admin_cron_id: 'ID',
+    admin_cron_state: 'State',
+    admin_cron_description: 'Description',
+    admin_cron_code: 'Code',
+    admin_cron_cron_string: 'Cron String',
+    admin_cron_minute: 'Minute',
+    admin_cron_hour: 'Hour',
+    admin_cron_dayOfTheMonth: 'Day of the month',
+    admin_cron_dayOfTheWeek: 'Day of the week',
+    admin_cron_monthOfTheYear: 'Mont of the year',
+    admin_cron_createdAt: 'Created At',
+    admin_cron_updatedAt: 'Updated At',
+    admin_cron_actions: 'Actions',
+    admin_cron_list: 'List of cron functions',
 
 
 }

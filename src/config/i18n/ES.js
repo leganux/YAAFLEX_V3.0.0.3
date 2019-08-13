@@ -189,4 +189,21 @@ module.exports = {
     admin_fnc_updated: 'Fecha de actualización',
     admin_fnc_actions: 'Acciones ',
     admin_title_fnc_list: 'Lista de API Funciones ',
+    admin_menu_cron_functions: 'Funciones cron',
+
+    admin_cron_id: 'ID',
+    admin_cron_state: 'Estado',
+    admin_cron_description: 'Descripción',
+    admin_cron_code: 'Codigo',
+    admin_cron_cron_string: 'Texto Cron ',
+    admin_cron_minute: 'Minuto',
+    admin_cron_hour: 'Hora',
+    admin_cron_dayOfTheMonth: 'Dia del mes',
+    admin_cron_dayOfTheWeek: 'Dia de la semana',
+    admin_cron_monthOfTheYear: 'Mes del año',
+    admin_cron_createdAt: 'Creado',
+    admin_cron_updatedAt: 'Actualizado',
+    admin_cron_actions: 'Acciones',
+    admin_cron_list: 'Lista de funciones cron',
+
 }

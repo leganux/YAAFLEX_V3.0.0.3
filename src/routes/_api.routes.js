@@ -19,5 +19,6 @@ router.use('/server_statistics', require('./NOSQL/serverdata.routes'));
 router.use('/client_data', require('./NOSQL/client_data.routes'));
 router.use('/functions', require('./SQL/api_scriptis.routes'));
 router.use('/function', require('./SQL/api_functions.routes'));
+router.use('/cron', require('./SQL/cron_scripts.routes'));
 
 module.exports = router;

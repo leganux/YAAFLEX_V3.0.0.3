@@ -1,0 +1,149 @@
+doctype html
+html(lang='en')
+    head
+        include template/head
+        link(rel="stylesheet",href=config.path.AssetsCP + '/vendor/codemirror/lib/codemirror.css')
+        link(rel="stylesheet",href=config.path.AssetsCP + '/vendor/codemirror/theme/dracula.css')
+    body.sidebar-mini(style="heigth:auto;")
+        .wrapper
+            include template/navBarSuperiror
+            include template/nav
+        .content-wrapper(style="min-height: 898px;")
+            section.content-header
+                .container-fluid
+                    .row.mb-2
+                        .col-sm-6
+                            h3 #{i18n.admin_menu_cron_functions}
+                        .col-sm-6
+                            ol.breadcrumb.float-sm-right
+                                li.breadcrumb-item
+                                    a(href='#') Home
+                                li.breadcrumb-item.active #{i18n.admin_menu_cron_functions}
+            section.content
+                .card
+                    .card-header
+                        h5.car-title #{i18n.admin_menu_cron_functions}
+
+                        .card-tools
+                            button.btn.btn-tool(type='button' data-widget='collapse' data-toggle='tooltip' title='Collapse')
+                                i.fas.fa-minus
+                            button.btn.btn-tool(type='button' data-widget='remove' data-toggle='tooltip' title='Remove')
+                                i.fas.fa-times
+                    .card-body
+                        .row
+                            .col-12.col-md-4
+                            .col-12.col-md-4
+                            .col-12.col-md-4
+                                button#nuevo_elemento.btn.btn-block.btn-success.btn-outline #{i18n.admin_button_new}
+                        br
+                        .row
+                            .col-12
+                                table#Table_of_cron.display.table.table-striped.table-bordered.table-hover(width='100%')
+                                    thead
+                                        tr
+                                            th #{i18n.admin_cron_id}
+                                            th #{i18n.admin_cron_state}
+                                            th #{i18n.admin_cron_description}
+                                            th #{i18n.admin_cron_code}
+                                            th #{i18n.admin_cron_cron_string}
+                                            th #{i18n.admin_cron_minute}
+                                            th #{i18n.admin_cron_hour}
+                                            th #{i18n.admin_cron_dayOfTheMonth}
+                                            th #{i18n.admin_cron_dayOfTheWeek}
+                                            th #{i18n.admin_cron_monthOfTheYear}
+                                            th #{i18n.admin_cron_createdAt}
+                                            th #{i18n.admin_cron_updatedAt}
+                                            th #{i18n.admin_cron_actions}
+
+
+
+
+
+                    .card-footer
+                        p #{i18n.admin_cron_list}
+
+
+        br
+        #myDataModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='basicModal', aria-hidden='true',data-backdrop="static", data-keyboard="false")
+            .modal-dialog.modal-xl
+                .modal-content
+                    .modal-header
+                        h4#myModalLabel.modal-title #{i18n.admin_modal_save_edit}
+                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                            span(aria-hidden='true') &times;
+                    .modal-body
+                        label  #{i18n.admin_cron_state}
+                        select.form-control#txt_state
+                            option(value='1') Activo/Active
+                            option(value='0') Inactivo/Inactive
+                        br
+                        label  #{i18n.admin_cron_description}
+                        input#txt_description.form-control(type="text")
+                        br
+                        label  #{i18n.admin_cron_cron_string}
+                        input#txt_cron_string.form-control(type="text", disabled="true" , value="* * * * *")
+                        br
+
+                        label  #{i18n.admin_cron_minute}
+                        input#txt_minute.form-control(type="number", min="0" , max="59")
+                        br
+                        label  #{i18n.admin_cron_hour}
+                        input#txt_hour.form-control(type="mumber",min=0,max=23)
+                        br
+                        label  #{i18n.admin_cron_dayOfTheMonth}
+                        input#txt_dayofmont.form-control(type="number", min=1,max=31)
+                        br
+                        label  #{i18n.admin_cron_dayOfTheWeek}
+                        select#txt_dayofweek.form-control
+                            option(value='') *
+                            option(value='1') Lunes / Monday
+                            option(value='2') Martes / Tuesday
+                            option(value='3') Miercoles / Wednesday
+                            option(value='4') Jueves / Thursday
+                            option(value='5') Viernes / Friday
+                            option(value='6') Sabado / Saturday
+                            option(value='7') Domingo / Sunday
+                        br
+                        label  #{i18n.admin_cron_monthOfTheYear}
+                        select#txt_mothofyear.form-control
+                            option(value='') *
+                            option(value='1') Enero / January
+                            option(value='2') Febrero / February
+                            option(value='3') Marzo / March
+                            option(value='4') Abril / April
+                            option(value='5') Mayo / May
+                            option(value='6') Junio / Jun
+                            option(value='7') Julio / July
+                            option(value='8') Agosto / Agust
+                            option(value='9') Septiembre / Sepetember
+                            option(value='10') Octubre / October
+                            option(value='11') Noviembre / November
+                            option(value='12') Diciembre / December
+                        br
+
+
+
+
+                        label  #{i18n.admin_cron_code}
+                        textarea#code(name="code") function (){}
+
+
+                    .modal-footer
+                        button#SaveChanges.btn.btn-primary(type='button') #{i18n.admin_modal_save}
+                        button.btn.btn-secondary(type='button' data-dismiss='modal') #{i18n.admin_modal_cancel}
+
+
+        include template/footer
+        include template/aside
+
+        include template/scripts
+        script(src=config.path.AssetsCP + '/vendor/codemirror/lib/codemirror.js')
+        script(src=config.path.AssetsCP + '/vendor/codemirror/mode/javascript/javascript.js')
+        script(src=config.path.AssetsCP + '/vendor/codemirror/addon/selection/active-line.js')
+        script(src=config.path.AssetsCP + '/vendor/codemirror/addon/edit/matchbrackets.js')
+        script(src=config.path.AssetsCP + '/code/js/cron_functions.js?v=' + Math.random())
+
+
+
+
+
