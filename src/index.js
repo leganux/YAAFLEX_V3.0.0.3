@@ -91,6 +91,7 @@ app.use(env.root + '/auth/google', require('./auth/google'));
 app.use(env.root + '/auth/instagram', require('./auth/instagram'));
 app.use(env.root + '/auth/admin', require('./auth/admin'));
 app.use(env.root + '/auth/login', require('./auth/login'));
+app.use(env.root + '/auth/token', require('./auth/logintoken'));
 
 // Db connection
 const {mongoose} = require('./database');
