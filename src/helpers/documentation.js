@@ -7,7 +7,7 @@ module.exports = {
     "swagger": "2.0",
     "info": {
         "title": "Rest documentation for YAAFLEX ",
-        "description": "This is a Sample documentation of YAAFLEX. Use this section to create your own description of documentation based on API-DOC - SWAGGER",
+        "description": "This is a Sample documentation of YAAFLEX. Use this section to create your own description of documentation based on OPEN-API JSON and SWAGGER",
         "version": "1.0"
     },
     "produces": [
@@ -37,28 +37,71 @@ module.exports = {
                 "responses": {
                     "200": {
                         "description": "Returns a list of countries",
-                        "content": {
-                            "application/json:": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "description": "Message from server"
-                                        },
-                                        "success": {
-                                            "type": "boolean",
-                                            "description": "True or false"
-                                        }
-                                    }
-                                }
+                        "examples": {
+                            "application/json": {
+                                "mesage": "OK",
+                                "success": true,
+                                "data": [{
+                                    "_id": "5cbb6dc522b4c967b75f3292",
+                                    "id": 1,
+                                    "sortname": "AF",
+                                    "name": "Afghanistan",
+                                    "phoneCode": "93"
+                                },
+                                    {
+                                        "_id": "5cbb6dc522b4c967b75f3293",
+                                        "id": 2,
+                                        "sortname": "AL",
+                                        "name": "Albania",
+                                        "phoneCode": "355"
+                                    },
+                                    {
+                                        "_id": "5cbb6dc522b4c967b75f3294",
+                                        "id": 3,
+                                        "sortname": "DZ",
+                                        "name": "Algeria",
+                                        "phoneCode": "213"
+                                    }]
                             }
                         }
                     },
                     "403": {
                         "description": "Forbbiden",
-                        "content": {
-                            "application/json:": {}
+                        "examples": {
+                            "application/json": {
+                                success: false,
+                                message: "Error Mesage",
+                                error: {
+                                    data: "error_data"
+                                }
+
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "examples": {
+                            "application/json": {
+                                success: false,
+                                message: "Error Mesage",
+                                error: {
+                                    data: "error_data"
+                                }
+
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "examples": {
+                            "application/json": {
+                                success: false,
+                                message: "Error Mesage",
+                                error: {
+                                    data: "error_data"
+                                }
+
+                            }
                         }
                     }
                 }
