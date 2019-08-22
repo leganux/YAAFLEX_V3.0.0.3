@@ -137,6 +137,7 @@ app.use(env.root + '/upload', require('./viewEngine/upload'));
 app.use(env.root + '/', require('./helpers/lets_encrypt.helper'));
 app.use(env.root + '/robots.txt', require('./helpers/robots_txt.helper'));
 app.use(env.root + '/', require('./helpers/logout.helper'));
+app.use(env.root + '/api_docs', require('./helpers/swagger_doc.helper'));
 
 /** API Routes */
 app.use(env.root + '/api', require('./routes/_api.routes'));
