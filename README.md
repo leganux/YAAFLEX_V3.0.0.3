@@ -12,6 +12,7 @@ Dependences
 * npm or yarn
 * mongoDB
 * redis server (optional)
+* Sequelize
 
 
 This framework works with:
@@ -48,6 +49,9 @@ Includes support for:
 * ServerSide datatables
 * World Countries, Cities, States Catalogues
 * User Data Client Tracking
+* Excecute dinamyc cron-jobs from dasboard
+* Easy implement API Scripts from dashboard (POST and GET)
+* SQL(SQLite, MariaDB, MySQL,SQLServer) and NoSQL(MongoDB)
 
 Included libraries.
 
