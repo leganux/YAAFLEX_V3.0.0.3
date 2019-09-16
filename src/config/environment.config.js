@@ -25,6 +25,9 @@ module.exports = {
     db_password: '',
     db_database: '',
     db_host: '',
+    noSQLDB_name:'project',
+    noSQLDB_host:'localhost',
+    noSQLDB_port:'',
 }
 
 

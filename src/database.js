@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
-const URI = 'mongodb://localhost/project';
+const env = require('./config/environment.config')
+const URI = 'mongodb://' + env.noSQLDB_host + '/' + env.noSQLDB_name;
 const autoIncrement = require('mongoose-auto-increment');
 
-mongoose.connect(URI, { useNewUrlParser: true })
+mongoose.connect(URI, {useNewUrlParser: true})
     .then(db => console.log('DB is connected'))
     .catch(error => console.error(error));
 
