@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
     $.fn.dataTable.ext.errMode = 'none';
@@ -59,7 +58,6 @@ $(document).ready(function () {
     });
 
 
-
     $('#nuevo_elemento').click(function () {
         $('#myDataModal').modal('show');
         UPDATE = '';
@@ -79,7 +77,7 @@ $(document).ready(function () {
     $(document).on('click', '.EditTemplate', function () {
         UploadOrEditTemplate = $(this).val()
         localStorage.setItem('tmpEditLX', UploadOrEditTemplate);
-        window.open('/lx_admin/leganuxWB/' + UploadOrEditTemplate);
+        window.open(rootPath + '/lx_admin/leganuxWB/' + UploadOrEditTemplate);
 
     });
 
@@ -111,13 +109,13 @@ $(document).ready(function () {
             alertify.error(lx_i18n.txt_txt_an_error_occured);
             return 0;
         }
-        var url =rootPath + "/api/dPage";
+        var url = rootPath + "/api/dPage";
         url = url + '/' + UploadOrEditTemplate;
         method = 'PUT'
         $.ajax({
             url: url,
             method: method,
-            data: { html: $('#txt_data_templete').val() }
+            data: {html: $('#txt_data_templete').val()}
         }).done(function (data) {
             HoldOn.close();
             $('#UploadTemplate_').modal('hide');
@@ -137,9 +135,9 @@ $(document).ready(function () {
         var ch = $(this).prop('checked');
 
         $.ajax({
-            url:rootPath + '/api/dPage/' + X,
+            url: rootPath + '/api/dPage/' + X,
             method: 'PUT',
-            data: { active: ch }
+            data: {active: ch}
         }).done(function (data) {
             GetDataTable();
             alertify.success(lx_i18n.txt_save_correctly);
@@ -155,7 +153,7 @@ $(document).ready(function () {
         UPDATE = $(this).val();
         HoldOn.open(HoldOptions);
         $.ajax({
-            url:rootPath + "/api/dPage/" + UPDATE,
+            url: rootPath + "/api/dPage/" + UPDATE,
         }).done(function (data) {
             HoldOn.close();
             if (data.success == true) {
@@ -178,7 +176,7 @@ $(document).ready(function () {
         alertify.confirm(lx_i18n.txt_fonfirm_delete, lx_i18n.txt_fonfirm_delete_question, function () {
             HoldOn.open(HoldOptions);
             $.ajax({
-                url:rootPath + "/api/dPage/" + DELETE,
+                url: rootPath + "/api/dPage/" + DELETE,
                 method: "DELETE"
             }).done(function (data) {
                 HoldOn.close();
@@ -200,7 +198,7 @@ $(document).ready(function () {
         DT.clear().draw();
         HoldOn.open(HoldOptions);
         $.ajax({
-            url:rootPath + "/api/dPage",
+            url: rootPath + "/api/dPage",
         }).done(function (data) {
 
             HoldOn.close();
@@ -224,7 +222,7 @@ $(document).ready(function () {
                 f_name: $('#txt_f_name').val(),
 
             }
-            var url =rootPath + "/api/dPage";
+            var url = rootPath + "/api/dPage";
             var method = 'POST';
             if (UPDATE !== '') {
                 url = url + '/' + UPDATE;
@@ -255,7 +253,6 @@ $(document).ready(function () {
     GetDataTable();
 
 
-
     $('#txt_title').change(function () {
         var x = $(this).val()
         x = v.snakeCase(x);
@@ -269,8 +266,6 @@ $(document).ready(function () {
         x = x.substring(0, 50);
         $('#txt_f_name').val(x)
     })
-
-
 
 
 });

@@ -9,13 +9,13 @@ html(lang='en')
         link(rel='icon', href='favicon.ico')
         base(href='')
         title leganuxWBx
-        link(href=config.path.wbLeganux+'/css/editor.css', rel='stylesheet')
-        link(href=config.path.wbLeganux+'/css/line-awesome.css', rel='stylesheet')
+        link(href=config.path.wbLeganux + '/css/editor.css', rel='stylesheet')
+        link(href=config.path.wbLeganux + '/css/line-awesome.css', rel='stylesheet')
         //link(href=config.path.AssetsSite+'/bootswatch-dist/' +data.template + '/bootstrap.css', rel='stylesheet')
     body
         #vvveb-builder
             #top-panel
-                img#logo.float-left(src=config.path.wbLeganux+'/img/logo2.png', alt='Vvveb')
+                img#logo.float-left(src=config.path.wbLeganux + '/img/logo2.png', alt='Vvveb')
                 .btn-group.mr-3(role='group')
                     button#undo-btn.btn.btn-light(title='Undo (Ctrl/Cmd + Z)', data-vvveb-action='undo', data-vvveb-shortcut='ctrl+z')
                         i.la.la-undo
@@ -95,7 +95,7 @@ html(lang='en')
                                     div
                                         .component-properties
                                             .mt-4.text-center Click on an element to edit.
-                
+
             #canvas
                 #iframe-wrapper
                     #iframe-layer
@@ -410,7 +410,11 @@ html(lang='en')
             script#vvveb-input-autocompletelist(type='text/html').
                 <div>
                 <input name="{%=key%}" type="text" class="form-control"/>
-                <div class="form-control autocomplete-list" style="min=height: 150px; overflow: auto;">
+                <div class="form-control autocomplete-list" style="min =
+                    height: 150px
+                ;
+                    overflow: auto
+                ;">
                 <div id="featured-product43"><i class="la la-close"></i> MacBook
                 <input name="product[]" value="43" type="hidden">
                 </div>
@@ -443,7 +447,7 @@ html(lang='en')
                         .modal-footer
                             button.btn.btn-secondary.btn-lg(type='button', data-dismiss='modal')
                                 i.la.la-close
-                                | 							Close
+                                |                            Close
             // message modal
             #message-modal.modal.fade(tabindex='-1', role='dialog')
                 .modal-dialog(role='document')
@@ -462,7 +466,7 @@ html(lang='en')
                             // <button type="button" class="btn btn-primary">Ok</button>
                             button.btn.btn-secondary.btn-lg(type='button', data-dismiss='modal')
                                 i.la.la-close
-                                | 							Close
+                                |                            Close
             // new page modal
             #new-page-modal.modal.fade(tabindex='-1', role='dialog')
                 .modal-dialog(role='document')
@@ -503,42 +507,43 @@ html(lang='en')
                                     |  Create page
                                 button.btn.btn-secondary.btn-lg(type='reset', data-dismiss='modal')
                                     i.la.la-close
-                                    | 								Cancel
+                                    |                                Cancel
 
 
             script.
                 const lx_assetsURL= '!{config.path.wbLeganux}';
                 const lx_ID= '!{data.id}';
                 const URL_template= '!{data.template}';
-            
+                const rootPath= '!{rootPath}';
+
 
             // jquery
-            script(src=config.path.wbLeganux+'/js/jquery.min.js')
-            script(src=config.path.wbLeganux+'/js/jquery.hotkeys.js')
+            script(src=config.path.wbLeganux + '/js/jquery.min.js')
+            script(src=config.path.wbLeganux + '/js/jquery.hotkeys.js')
             // bootstrap
-            script(src=config.path.wbLeganux+'/js/popper.min.js')
-            script(src=config.path.wbLeganux+'/js/bootstrap.min.js')
-           
+            script(src=config.path.wbLeganux + '/js/popper.min.js')
+            script(src=config.path.wbLeganux + '/js/bootstrap.min.js')
+
             // builder code
-            script(src=config.path.wbLeganux+'/libs/builder/builder.js')
+            script(src=config.path.wbLeganux + '/libs/builder/builder.js')
             // undo manager
-            script(src=config.path.wbLeganux+'/libs/builder/undo.js')
+            script(src=config.path.wbLeganux + '/libs/builder/undo.js')
             // inputs
-            script(src=config.path.wbLeganux+'/libs/builder/inputs.js')
+            script(src=config.path.wbLeganux + '/libs/builder/inputs.js')
             // components
-            script(src=config.path.wbLeganux+'/libs/builder/components-bootstrap4.js')
-            script(src=config.path.wbLeganux+'/libs/builder/components-widgets.js')
+            script(src=config.path.wbLeganux + '/libs/builder/components-bootstrap4.js')
+            script(src=config.path.wbLeganux + '/libs/builder/components-widgets.js')
             // blocks
-            script(src=config.path.wbLeganux+'/libs/builder/blocks-bootstrap4.js')
+            script(src=config.path.wbLeganux + '/libs/builder/blocks-bootstrap4.js')
             // plugins
             // code mirror - code editor syntax highlight
-            link(href=config.path.wbLeganux+'/libs/codemirror/lib/codemirror.css', rel='stylesheet')
-            link(href=config.path.wbLeganux+'/libs/codemirror/theme/material.css', rel='stylesheet')
-            script(src=config.path.wbLeganux+'/libs/codemirror/lib/codemirror.js')
-            script(src=config.path.wbLeganux+'/libs/codemirror/lib/xml.js')
-            script(src=config.path.wbLeganux+'/libs/codemirror/lib/formatting.js')
-            script(src=config.path.wbLeganux+'/libs/builder/plugin-codemirror.js')
-            script(src=config.path.wbLeganux+'/ini.js')
+            link(href=config.path.wbLeganux + '/libs/codemirror/lib/codemirror.css', rel='stylesheet')
+            link(href=config.path.wbLeganux + '/libs/codemirror/theme/material.css', rel='stylesheet')
+            script(src=config.path.wbLeganux + '/libs/codemirror/lib/codemirror.js')
+            script(src=config.path.wbLeganux + '/libs/codemirror/lib/xml.js')
+            script(src=config.path.wbLeganux + '/libs/codemirror/lib/formatting.js')
+            script(src=config.path.wbLeganux + '/libs/builder/plugin-codemirror.js')
+            script(src=config.path.wbLeganux + '/ini.js')
             // jszip - download page as zip
             //
                 script src="libs/jszip/jszip.min.js"></script>
