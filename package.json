@@ -41,7 +41,7 @@
     "passport-twitter": "^1.0.4",
     "pug": "^2.0.3",
     "redis": "^2.8.0",
-    "sequelize": "^5.13.1",
+    "sequelize": "^5.15.1",
     "socket.io": "^2.2.0",
     "sqlite3": "^4.0.9",
     "swagger-ui-express": "^4.0.7",
