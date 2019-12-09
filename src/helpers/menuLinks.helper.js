@@ -72,6 +72,11 @@ var Menu = {
             name: 'admin_menu_cron_functions'
         },
         {
+            path: env.root + '/lx_admin/BaaSDef',
+            icon: 'fas fa-database fa-fw',
+            name: 'admin_menu_baas_definition'
+        },
+        {
             path: env.root + '/logout',
             icon: 'fas fa-sign-out-alt fa-fw',
             name: 'admin_menu_logout'

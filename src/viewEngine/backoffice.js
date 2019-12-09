@@ -574,5 +574,45 @@ router.get('/leganuxWB/:id', CheckSession, async (req, res) => {
     });
 });
 
+router.get('/BaaSDef', CheckSession, async (req, res) => {
+    var role = '';
+    if (req.user && req.user.prop.role) {
+        role = req.user.prop.role
+    }
+    var i18n = cFunctions.getUserLang(req);
+    menuHelper.CP(role, i18n).then(menu => {
+        res.render("backoffice/BaaSDef", {
+            rootPath: env.root,
+            data: {},
+            config: {
+                menu,
+                langTexts: JSON.stringify(cFunctions.getUserLang(req)),
+                path: RoutesConfig,
+                assets: assets,
+                filesPath: RoutesConfig.FilesPath
+            },
+            seo: {
+                title: 'YAAFLEX - Yet another amazing framework by leganux',
+                description: 'YAAFLEX - yet another amazing framework by leganux',
+                image: 'http://cdn.leganux.com/IMG/integrado.png',
+                domain: req.get('host'),
+                url: req.protocol + '://' + req.get('host') + req.originalUrl,
+                tw_posted_by: '@leganux',
+                og_type: 'article',
+            },
+            i18n: cFunctions.getUserLang(req)
+
+        });
+
+    }).catch(err => {
+        if (err) {
+            console.error(err);
+            res.code(500).render('errors/err500')
+            return false;
+        }
+    });
+
+});
+
 
 module.exports = router;

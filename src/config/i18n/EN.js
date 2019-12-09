@@ -205,6 +205,22 @@ module.exports = {
     admin_cron_updatedAt: 'Updated At',
     admin_cron_actions: 'Actions',
     admin_cron_list: 'List of cron functions',
+    admin_menu_baas_definition: 'BaaS Definition',
+    admin_baas_name: 'Collection name',
+
+    admin_baas_description: 'Collection description',
+    admin_baas_route_name: 'Collection API route',
+
+    admin_menu_baas_collections_list: 'Collections list',
+    admin_menu_baas_collection_structure: 'Collection structure',
+    admin_menu_baas_collection_content: 'Collection data',
+    admin_field_name: 'Field name',
+    admin_field_type: 'Field type',
+    admin_field_r_model: 'Field related model',
+    admin_field_description: 'Field description',
+    admin_field_property: 'Field propertiries',
+    admin_field_id_table: 'Owner collection ',
+    admin_field_select_one: 'Select one... ',
 
 
 }

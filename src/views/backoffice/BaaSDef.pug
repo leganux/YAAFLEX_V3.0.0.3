@@ -1,0 +1,169 @@
+doctype html
+html(lang='en')
+    head
+        include template/head
+        link(rel="stylesheet",href=config.path.AssetsCP + '/vendor/codemirror/lib/codemirror.css')
+        link(rel="stylesheet",href=config.path.AssetsCP + '/vendor/codemirror/theme/dracula.css')
+    body.sidebar-mini(style="heigth:auto;")
+        .wrapper
+            include template/navBarSuperiror
+            include template/nav
+        .content-wrapper(style="min-height: 898px;")
+            section.content-header
+                .container-fluid
+                    .row.mb-2
+                        .col-sm-6
+                            h3 #{i18n.admin_menu_baas_definition}
+                        .col-sm-6
+                            ol.breadcrumb.float-sm-right
+                                li.breadcrumb-item
+                                    a(href='#') Home
+                                li.breadcrumb-item.active #{i18n.admin_menu_baas_definition}
+            section.content
+                .card
+                    .card-header
+                        h5.car-title #{i18n.admin_menu_baas_definition}
+
+                        .card-tools
+                            button.btn.btn-tool(type='button' data-widget='collapse' data-toggle='tooltip' title='Collapse')
+                                i.fas.fa-minus
+                            button.btn.btn-tool(type='button' data-widget='remove' data-toggle='tooltip' title='Remove')
+                                i.fas.fa-times
+
+                        br
+                        .row
+                            .col-12
+                                ul.nav.nav-tabs
+                                    li.nav-item
+                                        a.nav-link.active(data-toggle='tab', href='#home') #{i18n.admin_menu_baas_collections_list}
+                                    li.nav-item
+                                        a.nav-link(data-toggle='tab', href='#profile') #{i18n.admin_menu_baas_collection_structure}
+                                    li.nav-item
+                                        a.nav-link(data-toggle='tab', href='#content') #{i18n.admin_menu_baas_collection_content}
+
+
+
+                                #myTabContent.tab-content
+                                    #home.tab-pane.fade.active.show
+                                        br
+                                        .card-body
+                                            .row
+                                                .col-12.col-md-4
+                                                .col-12.col-md-4
+                                                .col-12.col-md-4
+                                                    button#nuevo_elemento.btn.btn-block.btn-success.btn-outline #{i18n.admin_button_new}
+                                        br
+                                        table#Table_of_baas.display.table.table-striped.table-bordered.table-hover(width='100%')
+                                            thead
+                                                tr
+                                                    th #{i18n.admin_baas_id}
+                                                    th #{i18n.admin_baas_name}
+                                                    th #{i18n.admin_baas_description}
+                                                    th #{i18n.admin_baas_route_name}
+                                                    th #{i18n.admin_cron_createdAt}
+                                                    th #{i18n.admin_cron_updatedAt}
+                                                    th #{i18n.admin_cron_actions}
+
+
+                                    #profile.tab-pane.fade
+                                        br
+                                        .card-body
+                                            .row
+                                                .col-12.col-md-4
+                                                .col-12.col-md-4
+                                                .col-12.col-md-4
+                                                    button#nuevo_elemento_str.btn.btn-block.btn-success.btn-outline #{i18n.admin_button_new}
+                                        br
+                                        table#Table_of_baas_str.display.table.table-striped.table-bordered.table-hover(width='100%')
+                                            thead
+                                                tr
+                                                    th #{i18n.admin_baas_id}
+                                                    th #{i18n.admin_field_name}
+                                                    th #{i18n.admin_field_type}
+                                                    th #{i18n.admin_field_r_model}
+                                                    th #{i18n.admin_field_description}
+                                                    th #{i18n.admin_field_property}
+                                                    th #{i18n.admin_field_id_table}
+                                                    th #{i18n.admin_cron_createdAt}
+                                                    th #{i18n.admin_cron_updatedAt}
+                                                    th #{i18n.admin_cron_actions}
+
+
+                                    #content.tab-pane.fade
+
+
+                    .card-footer
+                        p #{i18n.admin_menu_baas_definition}
+
+        br
+        #myDataModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='basicModal', aria-hidden='true',data-backdrop="static", data-keyboard="false")
+            .modal-dialog.modal-xl
+                .modal-content
+                    .modal-header
+                        h4.modal-title #{i18n.admin_modal_save_edit}
+                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                            span(aria-hidden='true') &times;
+                    .modal-body
+                        label  #{i18n.admin_baas_name}
+                        input(type="text")#txt_name_bass.form-control
+                        label  #{i18n.admin_baas_description}
+                        input(type="text")#txt_description_bass.form-control
+                        label  #{i18n.admin_baas_route_name}
+                        input(type="text")#txt_route_name_bass.form-control
+                        br
+
+                    .modal-footer
+                        button#SaveChanges.btn.btn-primary(type='button') #{i18n.admin_modal_save}
+                        button.btn.btn-secondary(type='button' data-dismiss='modal') #{i18n.admin_modal_cancel}
+
+        br
+        #myDataModal_str.modal.fade(tabindex='-1', role='dialog', aria-labelledby='basicModal', aria-hidden='true',data-backdrop="static", data-keyboard="false")
+            .modal-dialog.modal-xl
+                .modal-content
+                    .modal-header
+                        h4.modal-title #{i18n.admin_modal_save_edit}
+                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                            span(aria-hidden='true') &times;
+                    .modal-body
+                        label  #{i18n.admin_field_name}
+                        input(type="text")#admin_field_name.form-control
+                        label  #{i18n.admin_field_type}
+                        select#admin_field_type.form-control
+                            option(value=-1) #{i18n.admin_field_select_one}
+                            option(value=1) String
+                            option(value=2) Number
+                            option(value=3) Date
+                            option(value=4) Buffer
+                            option(value=5) Boolean
+                            option(value=6) Mixed
+                            option(value=7) Objectid Single
+                            option(value=8) Objectid Array
+                            option(value=9) Array
+
+                        label  #{i18n.admin_field_r_model}
+                        select#admin_field_r_model.form-control
+                            option(value=-1) #{i18n.admin_field_select_one}
+                        label  #{i18n.admin_field_description}
+                        input(type="text")#admin_field_description.form-control
+                        label  #{i18n.admin_field_property}
+                        textarea(rows="5")#admin_field_property.form-control
+                        label  #{i18n.admin_field_id_table}
+                        input(type="text")#admin_field_tab_id.form-control
+
+                        br
+
+                    .modal-footer
+                        button#SaveChanges_str.btn.btn-primary(type='button') #{i18n.admin_modal_save}
+                        button.btn.btn-secondary(type='button' data-dismiss='modal') #{i18n.admin_modal_cancel}
+
+
+        include template/footer
+        include template/aside
+
+        include template/scripts
+        script(src=config.path.AssetsCP + '/code/js/BaaSDef.js?v=' + Math.random())
+
+
+
+
+

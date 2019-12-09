@@ -205,5 +205,23 @@ module.exports = {
     admin_cron_updatedAt: 'Actualizado',
     admin_cron_actions: 'Acciones',
     admin_cron_list: 'Lista de funciones cron',
+    admin_menu_baas_definition: 'Definición de Baas',
+
+    admin_baas_id: 'ID',
+    admin_baas_name: 'Nombre de la Colleción ',
+    admin_baas_description: 'Descripcion de Colleción ',
+    admin_baas_route_name: 'Ruta de la API',
+
+    admin_menu_baas_collections_list: 'Lista de coleciones ',
+    admin_menu_baas_collection_structure: 'Estructura de la colección',
+    admin_menu_baas_collection_content: 'Contenido de la colección',
+
+    admin_field_name: 'Nombre del campo',
+    admin_field_type: 'Tipo del campo',
+    admin_field_r_model: 'Modelo relacionado',
+    admin_field_description: 'Descripción del campo',
+    admin_field_property: 'Propiedades del campo',
+    admin_field_id_table: 'Colección a la que pertenece ',
+    admin_field_select_one: 'Selecciona una opción... ',
 
 }
