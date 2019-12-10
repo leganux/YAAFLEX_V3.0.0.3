@@ -223,5 +223,6 @@ module.exports = {
     admin_field_property: 'Propiedades del campo',
     admin_field_id_table: 'Colección a la que pertenece ',
     admin_field_select_one: 'Selecciona una opción... ',
+    txt_must_select_related_model: 'Debes seleccionar el modelo relacionado',
 
 }

@@ -35,11 +35,11 @@ html(lang='en')
                             .col-12
                                 ul.nav.nav-tabs
                                     li.nav-item
-                                        a.nav-link.active(data-toggle='tab', href='#home') #{i18n.admin_menu_baas_collections_list}
+                                        a.nav-link.active(data-toggle='tab', href='#home')#tables_ #{i18n.admin_menu_baas_collections_list}
                                     li.nav-item
-                                        a.nav-link(data-toggle='tab', href='#profile') #{i18n.admin_menu_baas_collection_structure}
+                                        a.nav-link(data-toggle='tab', href='#profile')#Structure_.disabled #{i18n.admin_menu_baas_collection_structure}
                                     li.nav-item
-                                        a.nav-link(data-toggle='tab', href='#content') #{i18n.admin_menu_baas_collection_content}
+                                        a.nav-link(data-toggle='tab', href='#content')#Content_.disabled #{i18n.admin_menu_baas_collection_content}
 
 
 
@@ -90,6 +90,20 @@ html(lang='en')
 
 
                                     #content.tab-pane.fade
+                                        br
+
+                                        .card-body
+                                            .row
+                                                .col-12.col-md-4
+                                                .col-12.col-md-4
+                                                .col-12.col-md-4
+                                                    button#nuevo_elemento_cnt.btn.btn-block.btn-success.btn-outline #{i18n.admin_button_new}
+                                        br
+                                        table#Table_of_baas_cnt.display.table.table-striped.table-bordered.table-hover(width='100%')
+                                            thead
+                                                tr
+
+
 
 
                     .card-footer
@@ -148,7 +162,7 @@ html(lang='en')
                         label  #{i18n.admin_field_property}
                         textarea(rows="5")#admin_field_property.form-control
                         label  #{i18n.admin_field_id_table}
-                        input(type="text")#admin_field_tab_id.form-control
+                        input(type="text", disabled="disabled")#admin_field_tab_id.form-control
 
                         br
 

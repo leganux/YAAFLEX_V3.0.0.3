@@ -13,8 +13,6 @@ const ModelField = require('./../../models/SQL/baas_fields.model');
 let RunningCron = {};
 
 
-
-
 //save new
 router.post('/collection/', CheckSession, async (req, res) => {
     let saveData = req.body;
@@ -129,7 +127,7 @@ router.get('/fields/', CheckSession, async (req, res) => {
     }
 
 
-    ModelTables.findAll(where).then(data => {
+    ModelField.findAll(where).then(data => {
         if (!data) {
             res.status(404).json({
                 message: "We can't GET data",
@@ -356,7 +354,7 @@ router.delete('/fields/:id', CheckSession, async (req, res) => {
     var ID = req.params.id;
 
 
-    ModelTables.destroy(
+    ModelField.destroy(
         {
             where: {id: ID}
         }

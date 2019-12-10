@@ -221,6 +221,7 @@ module.exports = {
     admin_field_property: 'Field propertiries',
     admin_field_id_table: 'Owner collection ',
     admin_field_select_one: 'Select one... ',
+    txt_must_select_related_model: 'Must to select related model ',
 
 
 }
