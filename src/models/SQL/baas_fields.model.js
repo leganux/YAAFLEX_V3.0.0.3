@@ -21,7 +21,7 @@ const baas_fienlds = DB.define('baas_fienlds', {
         allowNull: true
     },
     property: {
-        type: Sequelize.JSON,
+        type: Sequelize.STRING,
         unique: false,
         allowNull: true
     },

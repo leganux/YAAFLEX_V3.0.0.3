@@ -2,7 +2,13 @@ const express = require('express');
 const router = express.Router();
 const CheckSession = require('../../auth/checkSession');
 var env = require('../../config/environment.config');
-const BuildBasicSQLQueries = require('../../helpers/general_sql_query.helper')
+const BuildBasicSQLQueries = require('../../helpers/general_sql_query.helper');
+
+const BuildBasicQueries = require('../../helpers/general_query.helper')
+
+const mongoose = require('mongoose');
+const {Schema} = mongoose;
+var dataTables = require('mongoose-datatables')
 
 let moment = require('moment')
 
@@ -10,8 +16,15 @@ let moment = require('moment')
 //Definimos el modelo
 const ModelTables = require('./../../models/SQL/baas_tables.model');
 const ModelField = require('./../../models/SQL/baas_fields.model');
-let RunningCron = {};
+let listOfSchemas = {};
+let listOfModels = {};
 
+var vt = 'x,String,Number,Date,Buffer,Boolean,Mixed,SchemaSingle,SchemaArray,Array'.split(',');
+
+
+var makeItRealDB = require('./constructor.helper').makeItRealDB;
+
+makeItRealDB();
 
 //save new
 router.post('/collection/', CheckSession, async (req, res) => {
@@ -24,6 +37,7 @@ router.post('/collection/', CheckSession, async (req, res) => {
                 success: false
             })
         }
+        makeItRealDB();
         res.status(200).json({
             message: 'OK',
             data: data,
@@ -51,6 +65,7 @@ router.post('/fields/', CheckSession, async (req, res) => {
                 success: false
             })
         }
+        makeItRealDB();
         res.status(200).json({
             message: 'OK',
             data: data,
@@ -93,6 +108,7 @@ router.get('/collection/', CheckSession, async (req, res) => {
                 success: false
             })
         }
+
         res.status(200).json({
             message: 'OK',
             data: data,
@@ -135,6 +151,7 @@ router.get('/fields/', CheckSession, async (req, res) => {
                 success: false
             })
         }
+
         res.status(200).json({
             message: 'OK',
             data: data,
@@ -163,6 +180,7 @@ router.get('/collection/:id', CheckSession, async (req, res) => {
                 success: false
             })
         }
+
         res.status(200).json({
             message: 'OK',
             data: data,
@@ -191,6 +209,7 @@ router.get('/fields/:id', CheckSession, async (req, res) => {
                 success: false
             })
         }
+
         res.status(200).json({
             message: 'OK',
             data: data,
@@ -245,7 +264,7 @@ router.put('/collection/:id', CheckSession, async (req, res) => {
                 success: false
             })
         }
-
+        makeItRealDB();
         res.status(200).json({
             message: 'OK',
             data: data,
@@ -300,6 +319,7 @@ router.put('/fields/:id', CheckSession, async (req, res) => {
             })
         }
 
+        makeItRealDB();
         res.status(200).json({
             message: 'OK',
             data: data,
@@ -333,6 +353,7 @@ router.delete('/collection/:id', CheckSession, async (req, res) => {
                 success: false
             })
         }
+        makeItRealDB();
         res.status(200).json({
             message: 'OK',
             data: data,
@@ -366,6 +387,7 @@ router.delete('/fields/:id', CheckSession, async (req, res) => {
                 success: false
             })
         }
+        makeItRealDB();
         res.status(200).json({
             message: 'OK',
             data: data,
@@ -381,6 +403,9 @@ router.delete('/fields/:id', CheckSession, async (req, res) => {
         })
     });
 });
+
+
+router.use('/data', require('./constructor.helper').router);
 
 
 module.exports = router;

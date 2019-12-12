@@ -248,19 +248,81 @@ $(document).ready(function () {
     };
 
     var deploydatatableData = function (Workingtable) {
-        DT_cntn_ = $('#Table_of_baas_cnt').DataTable({
-            language: DT_Lang,
-            "columnDefs": [
-                {"name": "engine"},
-                {"name": "browser"},
-                {"name": "platform"},
-                {"name": "version"},
-                {"name": "grade"}
-            ],
-            responsive: true,
-            data: {},
+
+        try {
+            DT_cntn_.destroy();
+        } catch (err) {
+            console.log('Not existed')
+        }
+
+        HoldOn.open(HoldOptions);
+        //collectioname__
+
+
+        $.get(rootPath + '/api/baas/fields', {
+            strictsearch: {
+                id_table: Workingtable
+            }
+        }, function (data) {
+            if (data.success) {
+                var colTitles = colTitles + data.data.map(function (item, i) {
+                        return '<th> ' + item.name + '</th> ';
+                    });
+
+                var datatable_columns = [];
+                datatable_columns.push({
+                    data: '_id'
+                });
+                data.data.map(function (item, i) {
+                    datatable_columns.push({
+                        data: item.name
+                    })
+                });
+
+                datatable_columns.push({
+                    data: '_id',
+                    render: function (data) {
+                        return '<center>' +
+                            '<button class=" DeleteElement_data btn btn-danger" value="' + data + '"><i class="fa fa-trash"></i></button>'
+                            + '<button class="EditElement_data btn btn-primary" value="' + data + '"><i class="fas fa-edit"></i></button>'
+                            + '</center>'
+                    }
+                });
+
+                $('#Table_of_baas_cnt').html('<thead><tr>' + '<th> _id </th> ' + colTitles + ' <th>Actions</th> </tr> </thead>')
+                HoldOn.close();
+                DT_cntn_ = $('#Table_of_baas_cnt').DataTable({
+                    language: DT_Lang,
+                    responsive: true,
+                    columns: datatable_columns,
+                    data: {},
+                });
+
+                // tare el nombre de la tabla
+                $.get(rootPath + '/api/baas/collection/' + Workingtable, {}, function (data) {
+                    if (data.success) {
+                        $('#collectioname__').val(data.data.name);
+                        fillData()
+                    }
+                });
+
+
+            }
         });
 
+
+    };
+
+    var fillData = function () {
+        DT_cntn_.clear().draw();
+        HoldOn.open(HoldOptions)
+        var id = $('#collectioname__').val()
+        $.get(rootPath + '/api/baas/data/' + id, {}, function (data) {
+            if (data.success) {
+                DT_cntn_.clear().rows.add(data.data).draw();
+                HoldOn.close();
+            }
+        });
     }
 
     $(document.body).on('click', '.EditElement', function () {
@@ -385,4 +447,5 @@ $(document).ready(function () {
     toSnake('#admin_field_name');
 
 
-});
+})
+;

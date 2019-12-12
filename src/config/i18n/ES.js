@@ -205,7 +205,7 @@ module.exports = {
     admin_cron_updatedAt: 'Actualizado',
     admin_cron_actions: 'Acciones',
     admin_cron_list: 'Lista de funciones cron',
-    admin_menu_baas_definition: 'Definición de Baas',
+    admin_menu_baas_definition: 'Definición de BaaS',
 
     admin_baas_id: 'ID',
     admin_baas_name: 'Nombre de la Colleción ',
@@ -224,5 +224,6 @@ module.exports = {
     admin_field_id_table: 'Colección a la que pertenece ',
     admin_field_select_one: 'Selecciona una opción... ',
     txt_must_select_related_model: 'Debes seleccionar el modelo relacionado',
+    admin_actual_collection: 'Colección actual',
 
 }
