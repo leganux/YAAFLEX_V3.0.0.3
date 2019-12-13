@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const DB = require('./../../sql_db');
 
-const baas_fienlds = DB.define('baas_fienlds', {
+const baas_fields = DB.define('baas_fields', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -41,8 +41,8 @@ const baas_fienlds = DB.define('baas_fienlds', {
     // options
 });
 
-baas_fienlds.sync().then(() => {
-    console.log('** Table baas_fienlds was created!!');
+baas_fields.sync().then(() => {
+    console.log('** Table baas_fields was created!!');
 });
 
-module.exports = baas_fienlds;
+module.exports = baas_fields;

@@ -3,11 +3,13 @@ const ModelField = require('./../../models/SQL/baas_fields.model');
 let listOfSchemas = {};
 let listOfModels = {};
 let listOfPopulations = {};
+let listOfModelNames = {};
 
 const express = require('express');
 const router = express.Router();
 const CheckSession = require('../../auth/checkSession');
 var env = require('../../config/environment.config');
+var moment = require('moment')
 
 var vt = 'x,String,Number,Date,Buffer,Boolean,Mixed,SchemaSingle,SchemaArray,Array'.split(',');
 
@@ -26,6 +28,7 @@ var makeItRealDB = function () { // this function constructs all the DB models
     listOfModels = {};
     listOfPopulations = {};
 
+
     ModelTables.findAll().then(data => {
             data.map((item, i) => {
 
@@ -34,6 +37,7 @@ var makeItRealDB = function () { // this function constructs all the DB models
                 listOfSchemas[item.name] = {};
                 listOfModels[item.name] = {};
                 listOfPopulations[item.name] = {};
+                listOfModelNames[item.name] = item.name + '_' + moment().format('x');
 
                 ModelField.findAll({where: {id_table: item.id}}).then(datas => {
                     var innerEl = {};
@@ -121,8 +125,9 @@ var makeItRealDB = function () { // this function constructs all the DB models
                                 }
                                 break;
                             case 'SchemaSingle' :
-                                innerEl[jtem.name] = {type: Schema.Types.ObjectId, ref: listOfModels[jtem.r_model]};
-                                innerElPopulated = {path: jtem.name, model: listOfModels[jtem.r_model]}
+                                var nReal = listOfModelNames[r_model];
+                                innerEl[jtem.name] = {type: Schema.Types.ObjectId, ref: listOfModels[nReal]};
+                                innerElPopulated = {path: jtem.name, model: listOfModels[nReal]}
 
                                 if (jtem.property && jtem.property != '{}') {
                                     try {
@@ -136,8 +141,11 @@ var makeItRealDB = function () { // this function constructs all the DB models
                                 }
                                 break;
                             case 'SchemaArray' :
-                                var ineriner = {type: Schema.Types.ObjectId, ref: listOfModels[jtem.r_model]};
-                                innerElPopulated = {path: jtem.name, model: listOfModels[jtem.r_model]}
+
+                                var nReal = listOfModelNames[r_model];
+                                var ineriner = {type: Schema.Types.ObjectId, ref: listOfModels[nReal]};
+                                innerElPopulated = {path: jtem.name, model: listOfModels[nReal]}
+
                                 if (jtem.property && jtem.property != '{}') {
                                     try {
                                         var ElJson = JSON.parse(jtem.property)
@@ -159,7 +167,9 @@ var makeItRealDB = function () { // this function constructs all the DB models
                     listOfSchemas[item.name] = new Schema(innerEl);
                     listOfSchemas[item.name].plugin(dataTables)
 
-                    listOfModels[item.name] = mongoose.model(item.name, listOfSchemas[item.name]);
+                    var nameOF_ = listOfModelNames[item.name];
+
+                    listOfModels[nameOF_] = mongoose.model(nameOF_, listOfSchemas[item.name], 'api_baas_' + item.name);
 
                     listOfPopulations[item.name] = innerElPopulated;
 
@@ -196,11 +206,13 @@ var _addData = {}
 router.get('/:name/first/', CheckSession, async (req, res) => {
     var nombreModelo = req.params.name;
 
+
     if (listOfPopulations[nombreModelo]) {
         _Population = listOfPopulations[nombreModelo];
     }
+    var nReal = listOfModelNames[nombreModelo];
+    var OBJModel = listOfModels[nReal];
 
-    var OBJModel = listOfModels[nombreModelo];
     const {sort, search, paginate, strictsearch, avoid, like} = req.query;
     let order = {};
     let busqueda = {};
@@ -313,7 +325,8 @@ router.get('/:name/find/', CheckSession, async (req, res) => {
     if (listOfPopulations[nombreModelo]) {
         _Population = listOfPopulations[nombreModelo];
     }
-    var OBJModel = listOfModels[nombreModelo];
+    var nReal = listOfModelNames[nombreModelo];
+    var OBJModel = listOfModels[nReal];
     const {strictsearch, avoid, select} = req.query;
 
     let busqueda = {};
@@ -376,7 +389,10 @@ router.get('/:name/', CheckSession, async (req, res) => {
     if (listOfPopulations[nombreModelo]) {
         _Population = listOfPopulations[nombreModelo];
     }
-    var OBJModel = listOfModels[nombreModelo];
+
+
+    var nReal = listOfModelNames[nombreModelo];
+    var OBJModel = listOfModels[nReal];
 
     const {sort, search, paginate, strictsearch, avoid, like, select} = req.query;
     let order = {};
@@ -487,7 +503,10 @@ router.get('/:name/:id', CheckSession, async (req, res) => {
     if (listOfPopulations[nombreModelo]) {
         _Population = listOfPopulations[nombreModelo];
     }
-    var OBJModel = listOfModels[nombreModelo];
+
+    var nReal = listOfModelNames[nombreModelo];
+    var OBJModel = listOfModels[nReal];
+
     let query = OBJModel.findById(req.params.id);
 
     if (_Population && _Population.length > 0) {
@@ -528,7 +547,9 @@ router.post('/:name/', CheckSession, async (req, res) => {
     if (listOfPopulations[nombreModelo]) {
         _Population = listOfPopulations[nombreModelo];
     }
-    var OBJModel = listOfModels[nombreModelo];
+
+    var nReal = listOfModelNames[nombreModelo];
+    var OBJModel = listOfModels[nReal];
 
     if (_Special && _Special.post && _Special.post.length > 0) {
 
@@ -604,7 +625,9 @@ router.put('/:name/:id', CheckSession, async (req, res) => {
     if (listOfPopulations[nombreModelo]) {
         _Population = listOfPopulations[nombreModelo];
     }
-    var OBJModel = listOfModels[nombreModelo];
+
+    var nReal = listOfModelNames[nombreModelo];
+    var OBJModel = listOfModels[nReal];
 
     for (var key in json) {
         if (json.hasOwnProperty(key)) {
@@ -685,7 +708,11 @@ router.put('/:name/:id', CheckSession, async (req, res) => {
 // Delete
 router.delete('/:name/:id', CheckSession, async (req, res) => {
     var nombreModelo = req.params.name;
-    var OBJModel = listOfModels[nombreModelo];
+
+    var nReal = listOfModelNames[nombreModelo];
+    var OBJModel = listOfModels[nReal];
+
+
     if (listOfPopulations[nombreModelo]) {
         _Population = listOfPopulations[nombreModelo];
     }
@@ -711,7 +738,8 @@ router.delete('/:name/:id', CheckSession, async (req, res) => {
 router.post('/:name/datatable', CheckSession, async (req, res) => {
 
     var nombreModelo = req.params.name;
-    var OBJModel = listOfModels[nombreModelo];
+    var nReal = listOfModelNames[nombreModelo];
+    var OBJModel = listOfModels[nReal];
 
     var order = {};
 

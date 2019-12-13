@@ -96,8 +96,11 @@ html(lang='en')
                                             .row
                                                 .col-12.col-md-4
                                                     h5 #{i18n.admin_actual_collection}
-                                                    input(type="text" disabled='disabled')#collectioname__
+                                                    input(type="text" readonly='true')#collectioname__.form-control
                                                 .col-12.col-md-4
+                                                    label BaseURL
+                                                    input(type='text', value='/api/baas/data/{collection_name}', readonly='true' ).form-control
+
                                                 .col-12.col-md-4
                                                     button#nuevo_elemento_cnt.btn.btn-block.btn-success.btn-outline #{i18n.admin_button_new}
                                         br
@@ -130,6 +133,21 @@ html(lang='en')
 
                     .modal-footer
                         button#SaveChanges.btn.btn-primary(type='button') #{i18n.admin_modal_save}
+                        button.btn.btn-secondary(type='button' data-dismiss='modal') #{i18n.admin_modal_cancel}
+
+        br
+        #myDataModal_dinamic_dta.modal.fade(tabindex='-1', role='dialog', aria-labelledby='basicModal', aria-hidden='true',data-backdrop="static", data-keyboard="false")
+            .modal-dialog.modal-xl
+                .modal-content
+                    .modal-header
+                        h4.modal-title #{i18n.admin_modal_save_edit}
+                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                            span(aria-hidden='true') &times;
+                    .modal-body#ADD_fields
+
+                        br
+                    .modal-footer
+                        button#SaveChanges_dynamicDta.btn.btn-primary(type='button') #{i18n.admin_modal_save}
                         button.btn.btn-secondary(type='button' data-dismiss='modal') #{i18n.admin_modal_cancel}
 
         br

@@ -1,7 +1,9 @@
 $.fn.dataTable.ext.errMode = 'none';
 var UPDATE = '';
 var UPDATE_str = '';
+var UPDATE_Data = '';
 var WTable = '';
+var WTableFields = '';
 
 var vt = 'x,String,Number,Date,Buffer,Boolean,Mixed,SchemaSingle,SchemaArray,Array'.split(',');
 
@@ -156,6 +158,38 @@ $(document).ready(function () {
         });
     });
 
+
+    $('#SaveChanges_dynamicDta').click(function () {
+
+        var data = {};
+        WTableFields.map((item, i) => {
+            data[item.name] = $('#baas_dynamic_field_' + item.name).val();
+        });
+        HoldOn.open(HoldOptions);
+        var url = rootPath + '/api/baas/data/' + $('#collectioname__').val() + '';
+        var method = 'POST';
+        if (UPDATE_Data !== '') {
+            url = url + '/' + UPDATE_Data;
+            method = 'PUT'
+        }
+
+        $.ajax({
+            url: url,
+            method: method,
+            data: data
+        }).done(function (data) {
+            HoldOn.close();
+            $('#myDataModal_dinamic_dta').modal('hide');
+            fillData();
+            alertify.success(lx_i18n.txt_save_correctly);
+        }).fail(function (err) {
+            $('#myDataModal_dinamic_dta').modal('hide');
+            HoldOn.close();
+            alertify.error(lx_i18n.txt_txt_an_error_occured);
+            console.error(err);
+        });
+    });
+
     $('#SaveChanges_str').click(function () {
 
         var vt = 'x,String,Number,Date,Buffer,Boolean,Mixed,SchemaSingle,SchemaArray,Array'.split(',');
@@ -182,7 +216,7 @@ $(document).ready(function () {
             name: nombre,
             type: vt[type],
             description: description,
-            property: property,
+            property: (property),
             id_table: idCollection,
             r_model: rmodel != -1 ? rmodel : '',
         }
@@ -264,6 +298,8 @@ $(document).ready(function () {
                 id_table: Workingtable
             }
         }, function (data) {
+            WTableFields = data.data;
+
             if (data.success) {
                 var colTitles = colTitles + data.data.map(function (item, i) {
                         return '<th> ' + item.name + '</th> ';
@@ -360,6 +396,28 @@ $(document).ready(function () {
         })
     });
 
+    $(document.body).on('click', '.EditElement_data', function () {
+        UPDATE_Data = $(this).val();
+        DrawModalFields(function () {
+            HoldOn.open(HoldOptions);
+
+            $.get(rootPath + '/api/baas/data/' + $('#collectioname__').val() + '/' + UPDATE_Data, {
+                id: UPDATE_Data
+            }, function (data) {
+                HoldOn.close();
+                if (data.success) {
+                    $('#myDataModal_dinamic_dta').modal('show');
+
+                    WTableFields.map((item, i) => {
+                        $('#baas_dynamic_field_' + item.name).val(data.data[item.name])
+                    });
+
+
+                }
+            });
+        });
+    });
+
     $(document.body).on('click', '.StructureElement', function () {
 
         WTable = $(this).val();
@@ -423,6 +481,28 @@ $(document).ready(function () {
 
     });
 
+    $(document.body).on('click', '.DeleteElement_data', function () {
+        var DELETE = $(this).val();
+        alertify.confirm(lx_i18n.txt_fonfirm_delete, lx_i18n.txt_fonfirm_delete_question, function () {
+            HoldOn.open(HoldOptions);
+            $.ajax({
+                url: rootPath + '/api/baas/data/' + $('#collectioname__').val() + '/' + DELETE,
+                method: "DELETE"
+            }).done(function (data) {
+                HoldOn.close();
+                fillData();
+                alertify.success(lx_i18n.txt_delete_correctly)
+            }).fail(function (err) {
+                HoldOn.close();
+                alertify.error(lx_i18n.txt_txt_an_error_occured);
+                console.error(err);
+            });
+        }, function () {
+            HoldOn.close();
+        });
+
+    });
+
     $('#tables_').click(function () {
         $('#Structure_').addClass('disabled')
         $('#Content_').addClass('disabled')
@@ -445,6 +525,69 @@ $(document).ready(function () {
     toSnake('#txt_name_bass');
     toSnake('#txt_route_name_bass');
     toSnake('#admin_field_name');
+
+    var DrawModalFields = function (f_) {
+        $('#ADD_fields').html('<br>');
+        WTableFields.map((item, i) => {
+            var element = '';
+            switch (item.type) {
+                case 'String':
+                    element = '<label>' + item.name + '</label><br>' +
+                        '<input id="baas_dynamic_field_' + item.name + '" class="form-control" type="text" placeholder="' + item.name + '"><br>';
+                    break;
+
+                case 'Number':
+                    element = '<label>' + item.name + '</label><br>' +
+                        '<input id="baas_dynamic_field_' + item.name + '" class="form-control" type="number" placeholder="' + item.name + '"><br>';
+                    break;
+
+                case 'Boolean':
+                    element = '<label>' + item.name + '</label><br>' +
+                        '<select id="baas_dynamic_field_' + item.name + '" class="form-control"  placeholder="' + item.name + '">' +
+                        '<option value="true">true</option>' +
+                        '<option value="false">false</option>' +
+                        '</select><br>';
+                    break;
+
+                case 'Date':
+                    element = '<label>' + item.name + '</label><br>' +
+                        '<input id="baas_dynamic_field_' + item.name + '" class="form-control" type="date" placeholder="yyyy-mm-dd"><br>';
+                    break;
+                case 'Buffer':
+                    element = '<label>' + item.name + '</label><br>' +
+                        '<input id="baas_dynamic_field_' + item.name + '" class="form-control" type="text"  disabled placeholder="Buffer type not supported to register manually"><br>';
+                    break;
+                case 'Mixed':
+                    element = '<label>' + item.name + '</label><br>' +
+                        '<input id="baas_dynamic_field_' + item.name + '" class="form-control" type="text"  disabled placeholder="Mixed type not supported to register manually"><br>';
+                    break;
+                case 'Array':
+                    element = '<label>' + item.name + '</label><br>' +
+                        '<input id="baas_dynamic_field_' + item.name + '" class="form-control" type="text"  disabled placeholder="Mixed type not supported to register manually"><br>';
+                    break;
+                case 'SchemaSingle':
+                    element = '<label>' + item.name + '</label><br>' +
+                        '<input id="baas_dynamic_field_' + item.name + '" class="form-control" type="text"   placeholder="Insert the realted schema name"><br>';
+                    break;
+                case 'SchemaArray':
+                    element = '<label>' + item.name + '</label><br>' +
+                        '<input id="baas_dynamic_field_' + item.name + '" class="form-control" type="text"   placeholder="Insert the realted schema name"><br>';
+                    break;
+            }
+
+            $('#ADD_fields').append(element);
+            $('#myDataModal_dinamic_dta').modal('show');
+
+        });
+        if (f_) {
+            f_();
+        }
+    }
+
+
+    $('#nuevo_elemento_cnt').click(function () {
+        DrawModalFields();
+    });
 
 
 })
