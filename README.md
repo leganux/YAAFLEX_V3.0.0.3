@@ -26,6 +26,7 @@ This framework works with:
 
 Includes support for:
 
+* BaaS **NEW Back End as a Service (Create  collections and structures from dashboard)
 * API-REST (GET,PUT,POST,DELETE)
 * MVC
 * routing
@@ -68,6 +69,7 @@ Included libraries.
 * Moment
 * Alertify
 * Artyom
+* Field Validation library
 
 More soon...
 
