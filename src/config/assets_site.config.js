@@ -33,6 +33,7 @@ module.exports = {
         '/leganux/client.js',// client.js
         '/moment/momment.js',// momentjs
         '/leganux/global.js',// leganux global functions
+        '/leganux/formEvaluator.js',// leganux global functions
         '/iform/iform.js',// leganux iform
 
     ],
