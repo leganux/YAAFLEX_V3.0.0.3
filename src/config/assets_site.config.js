@@ -16,10 +16,13 @@ module.exports = {
         '/datepicker/css/bootstrap-datepicker.css',//  bs datepicker
     ],
     js: [
+        '/summernote/popper.js', //summernote
         '/fa/js/all.js',// fa icons
         '/leganux/equalizr.js', // Image Equalizr
         '/bs-dist/js/bootstrap.js', // bootstrap
         '/context/jquery.contextMenu.js', //Context menu
+
+        '/summernote/tooltip.js', //summernote
         '/summernote/summernote-bs4.js', //summernote
         '/select2/js/select2.js', // select2
         '/holdon/holdOn.js',//hold on

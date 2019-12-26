@@ -1,5 +1,4 @@
 const Sequelize = require('sequelize');
-
 const DB = require('./../../sql_db');
 
 
