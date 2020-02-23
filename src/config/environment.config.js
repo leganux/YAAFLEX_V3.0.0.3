@@ -12,7 +12,7 @@ module.exports = {
     ssl_port: 443,
     root: '/web',
     no_ssl_port: 8000,
-    site_theme: 'Yeti',
+    site_theme: 'Lumen',
     default_lang: 'EN',
     bcrypt_salt_rounds: 12,
     default_no_loged_user_role_id: '5cbb61d9d35f4b615e0b8f9a',
