@@ -1,33 +1,41 @@
 const fs = require('fs')
+let dotenv = require('dotenv')
+const result = dotenv.config()
+
+if (result.error) {
+    throw result.error
+}
+
+//console.log(result.parsed);
 
 
 module.exports = {
-    environment: 'development', // development, qa, production
-    session_server: 'redis', // redis, standalone
-    activeSSL: false, // true , false
-    max_fileupload_size: 10,  // in MB
-    body_parser_extended: true, // true,false
-    body_parser_json: true, //true , false
-    view_engine: 'pug',
-    ssl_port: 443,
-    root: '/web',
-    no_ssl_port: 8000,
-    site_theme: 'Lumen',
-    default_lang: 'EN',
-    bcrypt_salt_rounds: 12,
-    default_no_loged_user_role_id: '5cbb61d9d35f4b615e0b8f9a',
-    default_register_loged_user_role_id: '5cbb61d9d35f4b615e0b8f9a',
-    active_socket: true,
-    socket_port: 3000,
-    sql_db_flavor: 'sqlite',// sqlite, mysql,mariadb,
-    sqlite_db_path: 'sqlite_db/main.sqlite',
-    db_user: '',
-    db_password: '',
-    db_database: '',
-    db_host: '',
-    noSQLDB_name:'project',
-    noSQLDB_host:'localhost',
-    noSQLDB_port:'',
+    environment: process.env.ENVIRONMENT, //'development', // development, qa, production
+    session_server: process.env.SESSION_SERVER, // 'redis', // redis, standalone
+    activeSSL: eval(process.env.ACTIVE_SSL),// false, // true , false
+    max_fileupload_size: process.env.MAX_FILEUPLOAD_SIZE,// 10,  // in MB
+    body_parser_extended: eval(process.env.BODY_PARSER_EXTENDED),// true, // true,false
+    body_parser_json: eval(process.env.BODY_PARSER_JSON),// true, //true , false
+    view_engine: process.env.VIEW_ENGINE,// 'pug',
+    ssl_port: process.env.SSL_PORT,// 443,
+    root: process.env.ROOT,// '/web',
+    no_ssl_port: process.env.NO_SSL_PORT,// 8000,
+    site_theme: process.env.SITE_THEME,// 'Lumen',
+    default_lang: process.env.DEFAULT_LANG,// 'EN',
+    bcrypt_salt_rounds: process.env.BCRYPT_SALT_ROUNDS,// 12,
+    default_no_loged_user_role_id: process.env.DEFAULT_NO_LOGED_USER_ROLE_ID,// '5cbb61d9d35f4b615e0b8f9a',
+    default_register_loged_user_role_id: process.env.DEFAULT_REGISTER_LOGED_USER_ROLE_ID,// '5cbb61d9d35f4b615e0b8f9a',
+    active_socket: eval(process.env.ACTIVE_SOCKET), // true,
+    socket_port: process.env.SOCKET_PORT,// 3000,
+    sql_db_flavor: process.env.SQL_FLAVOR_DB,// 'sqlite',// sqlite, mysql,mariadb,
+    sqlite_db_path: process.env.SQLITE_DB_PATH,// 'sqlite_db/main.sqlite',
+    db_user: process.env.DB_USER, // '',
+    db_password: process.env.DB_PASSWORD,//'',
+    db_database: process.env.DB_DATABASE,//'',
+    db_host: process.env.DB_HOST,//'',
+    noSQLDB_name: process.env.NO_SQL_NAME,//'project',
+    noSQLDB_host: process.env.NO_SQL_HOST,
+    noSQLDB_port: process.env.NO_SQL_PORT,
 }
 
 
