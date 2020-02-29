@@ -6,7 +6,18 @@ meta(name="twitter:card" ,content="summary_large_image")
 if config
     if config.langTexts
     script.
-        const lx_i18n= JSON.parse('!{config.langTexts}'); 
+        const lx_i18n = JSON.parse('!{config.langTexts}');
+
+if  socketPath
+    script.
+        const socketPath = '!{socketPath}'
+if  socketPort
+    script.
+        var socketPort = '!{socketPort}'
+else
+    script.
+        var socketPort = '!{false}'
+
 
 if seo
     if seo.title
@@ -18,12 +29,12 @@ if seo
         meta(name='description', content=seo.description)
         meta(property='og:description', content=seo.description)
         meta(name="twitter:description" ,content=seo.description)
-    if seo.image 
+    if seo.image
         meta(name="twitter:image" ,content=seo.image)
         meta(property='og:image', content=seo.image)
     if seo.domain
         meta(name="twitter:domain" ,content=seo.domain)
-    if seo.url 
+    if seo.url
         meta(property='og:url', content=seo.url)
     if seo.tw_posted_by
         meta(name="twitter:site" ,content=seo.tw_posted_by)
@@ -41,15 +52,15 @@ if seo
 
 if config.assets.css
     each val in config.assets.css
-        link(rel="stylesheet", href=config.path.AssetsSite+val)
+        link(rel="stylesheet", href=config.path.AssetsSite + val)
 
 
 
 
 script.
     const rootPath = '#{rootPath}'
-link(rel="stylesheet", href=config.path.AssetsSite+"/bootswatch-dist/"+config.theme+'/bootstrap.css')
-script(src=config.path.AssetsSite+"/jquery.js")
+link(rel="stylesheet", href=config.path.AssetsSite + "/bootswatch-dist/" + config.theme + '/bootstrap.css')
+script(src=config.path.AssetsSite + "/jquery.js")
 
 
 

@@ -88,7 +88,8 @@ async function loggedIn(req, res, next) {
             model: UserRoles
         });
     } else {
-        console.log('A');
+
+
         return ERR403(req, res, next);
     }
 

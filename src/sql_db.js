@@ -8,12 +8,14 @@ var dir_sqlite = path.join(__dirname, env.sqlite_db_path)
 if (env.sql_db_flavor == 'sqlite') {
     SQLDB = new Sequelize({
         storage: dir_sqlite,
-        dialect: env.sql_db_flavor
+        dialect: env.sql_db_flavor,
+        logging: env.db_logging
     });
 } else {
     SQLDB = new Sequelize(env.db_database, env.db_user, env.db_password, {
         host: env.db_host,
-        dialect: dv.sql_db_flavor
+        dialect: dv.sql_db_flavor,
+        logging: env.db_logging
     });
 }
 

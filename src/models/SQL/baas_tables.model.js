@@ -28,7 +28,7 @@ const baas_tables = DB.define('baas_tables', {
 });
 
 baas_tables.sync().then(() => {
-    console.log('** Table baas_tables was created!!');
+
 });
 
 module.exports = baas_tables;

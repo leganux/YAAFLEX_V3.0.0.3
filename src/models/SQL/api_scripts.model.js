@@ -34,7 +34,7 @@ const api_scripts = DB.define('api_scrips', {
 });
 
 api_scripts.sync().then(() => {
-    console.log('** Table was created!!');
+
 });
 
 module.exports = api_scripts;

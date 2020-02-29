@@ -296,7 +296,7 @@ $(document).ready(function () {
             HoldOn.close();
             if (data.success == true) {
                 if (Number(data.count) > 0) {
-                    console.log(data.data)
+
                     DT.clear().rows.add(data.data).draw();
                 }
             }

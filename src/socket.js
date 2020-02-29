@@ -9,7 +9,7 @@ if (env.active_socket) {
         .listen(env.socket_port, function () {
             console.log('Socket server start at port  ' + env.socket_port)
         });
-    io = require('socket.io').listen(Server_);
+    io = require('socket.io').listen(Server_, {path: env.root + env.socket_path});
 }
 
 module.exports = io;

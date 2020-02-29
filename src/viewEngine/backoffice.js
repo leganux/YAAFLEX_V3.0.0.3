@@ -47,6 +47,11 @@ router.get('/dashboard', CheckSession, async (req, res) => {
     if (req.user && req.user.prop.role) {
         role = req.user.prop.role
     }
+
+    if (!role || role == '') {
+        return res.status(403).redirect(env.root + '/');
+    }
+
     var i18n = cFunctions.getUserLang(req);
     menuHelper.CP(role, i18n).then(menu => {
         //render Screen
@@ -85,6 +90,9 @@ router.get('/administradores', CheckSession, async (req, res) => {
     var role = '';
     if (req.user && req.user.prop.role) {
         role = req.user.prop.role
+    }
+    if (!role || role == '') {
+        return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
     menuHelper.CP(role, i18n).then(menu => {
@@ -126,6 +134,9 @@ router.get('/users', CheckSession, async (req, res) => {
     if (req.user && req.user.prop.role) {
         role = req.user.prop.role
     }
+    if (!role || role == '') {
+        return res.status(403).redirect(env.root + '/');
+    }
     var i18n = cFunctions.getUserLang(req);
     menuHelper.CP(role, i18n).then(menu => {
         res.render("backoffice/users", {
@@ -165,6 +176,9 @@ router.get('/roles_admin', CheckSession, async (req, res) => {
     var role = '';
     if (req.user && req.user.prop.role) {
         role = req.user.prop.role
+    }
+    if (!role || role == '') {
+        return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
     menuHelper.CP(role, i18n).then(menu => {
@@ -206,6 +220,9 @@ router.get('/roles_user', CheckSession, async (req, res) => {
     if (req.user && req.user.prop.role) {
         role = req.user.prop.role
     }
+    if (!role || role == '') {
+        return res.status(403).redirect(env.root + '/');
+    }
     var i18n = cFunctions.getUserLang(req);
     menuHelper.CP(role, i18n).then(menu => {
         res.render("backoffice/roles_user", {
@@ -245,6 +262,9 @@ router.get('/routes_access', CheckSession, async (req, res) => {
     if (req.user && req.user.prop.role) {
         role = req.user.prop.role
     }
+    if (!role || role == '') {
+        return res.status(403).redirect(env.root + '/');
+    }
     var i18n = cFunctions.getUserLang(req);
     menuHelper.CP(role, i18n).then(menu => {
         res.render("backoffice/routes_access", {
@@ -283,6 +303,9 @@ router.get('/routes_access_user', CheckSession, async (req, res) => {
     var role = '';
     if (req.user && req.user.prop.role) {
         role = req.user.prop.role
+    }
+    if (!role || role == '') {
+        return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
     menuHelper.CP(role, i18n).then(menu => {
@@ -324,6 +347,9 @@ router.get('/file_manager', CheckSession, async (req, res) => {
     if (req.user && req.user.prop.role) {
         role = req.user.prop.role
     }
+    if (!role || role == '') {
+        return res.status(403).redirect(env.root + '/');
+    }
     var i18n = cFunctions.getUserLang(req);
     menuHelper.CP(role, i18n).then(menu => {
         res.render("backoffice/file_manager", {
@@ -362,6 +388,9 @@ router.get('/articles', CheckSession, async (req, res) => {
     var role = '';
     if (req.user && req.user.prop.role) {
         role = req.user.prop.role
+    }
+    if (!role || role == '') {
+        return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
     menuHelper.CP(role, i18n).then(menu => {
@@ -403,6 +432,9 @@ router.get('/api_functions', CheckSession, async (req, res) => {
     if (req.user && req.user.prop.role) {
         role = req.user.prop.role
     }
+    if (!role || role == '') {
+        return res.status(403).redirect(env.root + '/');
+    }
     var i18n = cFunctions.getUserLang(req);
     menuHelper.CP(role, i18n).then(menu => {
         res.render("backoffice/api_functions", {
@@ -442,6 +474,9 @@ router.get('/cron_functions', CheckSession, async (req, res) => {
     var role = '';
     if (req.user && req.user.prop.role) {
         role = req.user.prop.role
+    }
+    if (!role || role == '') {
+        return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
     menuHelper.CP(role, i18n).then(menu => {
@@ -483,6 +518,9 @@ router.get('/places', CheckSession, async (req, res) => {
     if (req.user && req.user.prop.role) {
         role = req.user.prop.role
     }
+    if (!role || role == '') {
+        return res.status(403).redirect(env.root + '/');
+    }
     var i18n = cFunctions.getUserLang(req);
     menuHelper.CP(role, i18n).then(menu => {
         res.render("backoffice/places", {
@@ -522,6 +560,9 @@ router.get('/dinamic_pages', CheckSession, async (req, res) => {
     var role = '';
     if (req.user && req.user.prop.role) {
         role = req.user.prop.role
+    }
+    if (!role || role == '') {
+        return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
     menuHelper.CP(role, i18n).then(menu => {
@@ -578,6 +619,9 @@ router.get('/BaaSDef', CheckSession, async (req, res) => {
     var role = '';
     if (req.user && req.user.prop.role) {
         role = req.user.prop.role
+    }
+    if (!role || role == '') {
+        return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
     menuHelper.CP(role, i18n).then(menu => {

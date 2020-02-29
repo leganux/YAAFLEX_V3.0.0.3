@@ -1,12 +1,14 @@
-var socket = io.connect('http://127.0.0.1:3000/chat', {
+var socket = io.connect(rootPath + '/dashFlowSocket', {
     reconnection: true,
     reconnectionDelay: 10000,
     reconnectionDelayMax: 50000,
-    reconnectionAttempts: Infinity
+    reconnectionAttempts: Infinity,
+    path: socketPath
 });
 
+
 socket.on('connect', function () {
-    console.log('connected to server');
+
 });
 
 $(document).ready(function () {
@@ -51,6 +53,6 @@ $(document).ready(function () {
             '</div>' +
             '</div>');
 
-        $("#append_here").animate({ scrollTop: $('#append_here').prop("scrollHeight") }, 100);
+        $("#append_here").animate({scrollTop: $('#append_here').prop("scrollHeight")}, 100);
     });
 });

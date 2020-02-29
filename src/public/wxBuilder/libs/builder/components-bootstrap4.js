@@ -2000,7 +2000,7 @@ Vvveb.Components.add("html/gridrow", {
                     if (value) _class += ' ' + input.name + '-' + value;
                     column.attr("class", _class);
 
-                    //console.log(this, node, value, input, input.name);
+
 
                     return node;
                 },

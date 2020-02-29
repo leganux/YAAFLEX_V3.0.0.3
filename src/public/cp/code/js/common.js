@@ -65,7 +65,7 @@ setTimeout(function () {
 
     $('input').attr('autofill', 'off')
     $('[type="search"]').attr('autofill', 'off').attr('autocomplete', 'off').val('')
-    console.log('bye bye')
+
 
 
 }, 2000);

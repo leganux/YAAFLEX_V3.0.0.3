@@ -12,6 +12,8 @@ const fs = require('fs')
 var session = require('express-session')
 var RedisStore = require('connect-redis')(session);
 
+let io = {};
+
 
 /** Imports FRWRK  */
 const env = require('./config/environment.config')
@@ -46,6 +48,7 @@ app.use(fileUpload(
 
 // view engine html
 app.set("view engine", env.view_engine);
+
 
 // cookie parser
 app.use(require('cookie-parser')());
@@ -84,6 +87,16 @@ passport.deserializeUser(function (obj, cb) {
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+// allow cors
+if (env.allow_cors) {
+    app.use(function (req, res, next) {
+        res.header("Access-Control-Allow-Origin", env.allow_cors_domain); // update to match the domain you will make the request from
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    });
+}
+
 /** login routes */
 app.use(env.root + '/auth/facebook', require('./auth/facebook'));
 app.use(env.root + '/auth/twitter', require('./auth/twitter'));
@@ -120,6 +133,32 @@ if (env.activeSSL) {
         })
 }
 
+if (env.active_socket) {
+    if (!env.socket_port) {
+
+        io = require('socket.io').listen(Server_, {path: env.root + env.socket_path})
+    } else {
+        io = require('./socket')
+    }
+
+    var chat = io
+        .of(env.root + '/dashFlowSocket')
+        .on('connection', function (socket) {
+            console.log('** An user connected');
+
+            chat.emit('chat:message', 'hi');
+            socket.on('chat:message', function (msg) {
+
+                chat.emit('chat:message', msg);
+            });
+            socket.on('disconnect', function () {
+                console.log('*** User disconnected');
+            });
+
+        });
+
+}
+
 
 if (env.environment == 'development' || env.environment == 'qa') {
     app.use(morgan('dev'));
@@ -148,28 +187,6 @@ app.use(env.root + '/cdn/assets', express.static(path.join(__dirname, 'public'))
 
 //views
 app.set("views", path.join(__dirname, "views"));
-
-
-if (env.active_socket) {
-    // group chat socket IO on port 3000
-    var io = require('./socket')
-
-    var chat = io
-        .of('/chat')
-        .on('connection', function (socket) {
-            console.log('an user connected');
-            //socket.broadcast.emit('hello everione');
-            chat.emit('chat:message', 'hi');
-            socket.on('chat:message', function (msg) {
-                console.log('mensaje' + msg)
-                chat.emit('chat:message', msg);
-            });
-            socket.on('disconnect', function () {
-                console.log('user disconnected');
-            });
-
-        });
-}
 
 
 // error VIEWS

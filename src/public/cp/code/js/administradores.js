@@ -33,7 +33,7 @@ $(document).ready(function () {
             {
                 data: "role",
                 render: function (data, x, row) {
-                    console.log(data, 'data')
+
                     return data.name;
                 }
 

@@ -376,20 +376,18 @@ Vvveb.Components.extend("_base", "widgets/facebookpage", {
         inputtype: TextInput
 	}],
    onChange: function(node, input, value, component) {
-	   //console.log(component.html);
-	   //console.log(this.html);
+
 	   
 	   var newElement = $(this.html);
 	   newElement.find(".fb-page").attr(input.htmlAttr, value);
 	   
-	   console.log(node.parent());
-	   console.log(node.parent().html());
+
 	   node.parent().html(newElement.html());
 
-	   console.log(newElement);
 
 
-	   console.log(newElement.html());
+
+
 
 	   return newElement;
 	}	

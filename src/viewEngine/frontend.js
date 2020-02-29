@@ -1,4 +1,3 @@
-
 const express = require('express');
 const router = express.Router();
 const RoutesConfig = require('./../config/routes.config');
@@ -12,7 +11,7 @@ const Article = require('./../models/NOSQL/articles.model');
 
 // help function to get the dinamyc pages
 const GetPages = function (F_) {
-    var PAGES = dPage.find().sort({ 'dt_reg': 'desc' }).exec();
+    var PAGES = dPage.find().sort({'dt_reg': 'desc'}).exec();
     PAGES.then(F_).catch(err => {
         if (err) {
             console.error(err);
@@ -28,7 +27,7 @@ router.get('/', CheckSession, async (req, res) => {
         res.render("front/home",
             {
                 rootPath: env.root,
-                data: { pages },
+                data: {pages},
                 config: {
                     theme: env.site_theme.toLowerCase(),
                     langTexts: JSON.stringify(cFunctions.getUserLang(req)),
@@ -50,9 +49,6 @@ router.get('/', CheckSession, async (req, res) => {
     });
 
 
-
-
-
 });
 
 //blog list
@@ -61,7 +57,7 @@ router.get('/blog', CheckSession, async (req, res) => {
         res.render("front/blog",
             {
                 rootPath: env.root,
-                data: { pages },
+                data: {pages},
                 config: {
                     theme: env.site_theme.toLowerCase(),
                     langTexts: JSON.stringify(cFunctions.getUserLang(req)),
@@ -83,9 +79,6 @@ router.get('/blog', CheckSession, async (req, res) => {
     });
 
 
-
-
-
 });
 
 
@@ -95,7 +88,7 @@ router.get('/page/:name', CheckSession, async (req, res) => {
     name = name.trim()
 
     await GetPages(function (pages) {
-        dPage.findOne({ f_name: name }).exec(function (err, page) {
+        dPage.findOne({f_name: name}).exec(function (err, page) {
 
             if (err) {
                 console.error(err);
@@ -131,7 +124,6 @@ router.get('/page/:name', CheckSession, async (req, res) => {
     });
 
 
-
 });
 
 // get the article
@@ -140,7 +132,7 @@ router.get('/article/:name', CheckSession, async (req, res) => {
     name = name.trim()
 
     await GetPages(function (pages) {
-        Article.findOne({ f_name: name }).exec(function (err, page) {
+        Article.findOne({f_name: name}).exec(function (err, page) {
 
             if (err) {
                 console.error(err);
@@ -176,16 +168,19 @@ router.get('/article/:name', CheckSession, async (req, res) => {
     });
 
 
-
 });
 
 //SupportChat
 router.get('/chat', CheckSession, async (req, res) => {
     GetPages(function (pages) {
+
+
         res.render("front/chat",
             {
                 rootPath: env.root,
-                data: { pages },
+                socketPath: env.root + env.socket_path,
+                socketPort: env.socket_port,
+                data: {pages},
                 config: {
                     theme: env.site_theme.toLowerCase(),
                     langTexts: JSON.stringify(cFunctions.getUserLang(req)),
@@ -207,11 +202,7 @@ router.get('/chat', CheckSession, async (req, res) => {
     });
 
 
-
-
-
 });
-
 
 
 module.exports = router;

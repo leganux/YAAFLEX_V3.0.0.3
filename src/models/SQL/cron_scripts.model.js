@@ -45,7 +45,7 @@ const cron_scripts = DB.define('cron_scrips', {
 });
 
 cron_scripts.sync().then(() => {
-    console.log('** Table  cron_scripts  was created!!');
+
 });
 
 module.exports = cron_scripts;

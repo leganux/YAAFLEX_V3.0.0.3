@@ -286,11 +286,11 @@ $(document).ready(function () {
         try {
             DT_cntn_.destroy();
         } catch (err) {
-            console.log('Not existed')
+            console.error(err)
         }
 
         HoldOn.open(HoldOptions);
-        //collectioname__
+
 
 
         $.get(rootPath + '/api/baas/fields', {

@@ -42,7 +42,7 @@ const baas_fields = DB.define('baas_fields', {
 });
 
 baas_fields.sync().then(() => {
-    console.log('** Table baas_fields was created!!');
+
 });
 
 module.exports = baas_fields;
