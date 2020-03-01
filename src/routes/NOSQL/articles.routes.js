@@ -38,6 +38,10 @@ const _addData = {
     }]
 }
 
-BuildBasicQueries(router, OBJModel, _Population, CheckSession, _Special, _addData)
+
+
+BuildBasicQueries(router, OBJModel, _Population, CheckSession, _Special, _addData);
+
+
 
 module.exports = router;

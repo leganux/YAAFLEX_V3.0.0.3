@@ -14,6 +14,11 @@ var RedisStore = require('connect-redis')(session);
 
 let io = {};
 
+var dir = path.join(__dirname, '/logs');
+if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir);
+}
+
 
 /** Imports FRWRK  */
 const env = require('./config/environment.config')

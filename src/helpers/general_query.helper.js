@@ -173,6 +173,9 @@ module.exports = function (router, OBJModel, _Population, CheckSession, _Special
 
     // GET all Objects
     router.get('/', CheckSession, async (req, res) => {
+
+
+
         const {sort, search, paginate, strictsearch, avoid, like, select} = req.query;
         let order = {};
         let busqueda = {};
