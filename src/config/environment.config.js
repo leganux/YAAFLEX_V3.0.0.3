@@ -20,7 +20,7 @@ module.exports = {
     no_ssl_port: process.env.NO_SSL_PORT,// 8000,
     site_theme: process.env.SITE_THEME,// 'Lumen',
     default_lang: process.env.DEFAULT_LANG,// 'EN',
-    bcrypt_salt_rounds: process.env.BCRYPT_SALT_ROUNDS,// 12,
+    bcrypt_salt_rounds: Number(process.env.BCRYPT_SALT_ROUNDS),// 12,
     default_no_loged_user_role_id: process.env.DEFAULT_NO_LOGED_USER_ROLE_ID,// '5cbb61d9d35f4b615e0b8f9a',
     default_register_loged_user_role_id: process.env.DEFAULT_REGISTER_LOGED_USER_ROLE_ID,// '5cbb61d9d35f4b615e0b8f9a',
     active_socket: eval(process.env.ACTIVE_SOCKET), // true,
@@ -38,6 +38,8 @@ module.exports = {
     noSQLDB_port: process.env.NO_SQL_PORT,
     allow_cors: eval(process.env.ALLOW_ALL_ACCES_ORINGIN_ACTIVED),
     allow_cors_domain: process.env.CORS_DOMAIN_AOLLWED,
+    allow_console_on_screen: eval(process.env.ALLOW_CONSOLE_ON_SCREEN),
+    url_console_on_screen: process.env.URL_CONSOLE_ON_SCREEN
 
 }
 

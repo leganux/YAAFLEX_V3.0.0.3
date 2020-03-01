@@ -1,0 +1,62 @@
+doctype html
+html
+    head
+        include template/head
+
+
+    body
+        br
+        br
+        br
+        br
+        .container
+            .row
+                .col
+                    center
+                        h1 YAAFLEX Console on Screen
+
+            br
+            .row
+                .col-12.col-md-2
+                .col-12.col-md-8
+                    button.btn.btn-outline-primary.btn-block.btn-sm.clearconsole_ CLEAR
+            br
+            .row
+                .col-12.col-md-2
+                .col-12.col-md-8.card.card-border-primary
+                    #spfortable__(style='max-height:700px; overflow-y:auto;').card-body
+                        table(style="width:100%;" ).table.table-hover.table-striped
+                            tbody#sp4console_
+                .col-12.col-md-2
+            br
+
+            .row
+                .col-12.col-md-2
+                .col-12.col-md-8
+                    button.btn.btn-outline-primary.btn-block.btn-sm.clearconsole_ CLEAR
+            br
+            br
+            br
+
+
+
+
+        //scriptsJS
+        include template/scripts
+        script(src=config.path.AssetsSite + "/socket/socket.io.js")
+        script(src=config.path.AssetsSite + "/code/consoleOnScreen.js")
+
+      
+            
+
+    
+
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,3 @@
-
 const bcrypt = require('bcryptjs');
 var env = require('./../config/environment.config')
 const saltRounds = env.bcrypt_salt_rounds;
@@ -116,7 +115,7 @@ module.exports = function (router, OBJModel, _Population, CheckSession, _Special
 
     // GET one  Object find
     router.get('/find/', CheckSession, async (req, res) => {
-        const { strictsearch, avoid, select } = req.query;
+        const {strictsearch, avoid, select} = req.query;
 
         let busqueda = {};
         if (strictsearch) {
@@ -127,12 +126,12 @@ module.exports = function (router, OBJModel, _Population, CheckSession, _Special
         if (avoid) {
             for (const [key, val] of Object.entries(avoid)) {
                 if (val.toString() === 'true') {
-                    busqueda[key] = { "$ne": true };
+                    busqueda[key] = {"$ne": true};
                 } else if (val.toString() === 'false') {
-                    busqueda[key] = { "$ne": false };
+                    busqueda[key] = {"$ne": false};
                 }
                 else {
-                    busqueda[key] = { "$ne": val };
+                    busqueda[key] = {"$ne": val};
                 }
             }
         }
@@ -174,10 +173,11 @@ module.exports = function (router, OBJModel, _Population, CheckSession, _Special
 
     // GET all Objects
     router.get('/', CheckSession, async (req, res) => {
-        const { sort, search, paginate, strictsearch, avoid, like, select } = req.query;
+        const {sort, search, paginate, strictsearch, avoid, like, select} = req.query;
         let order = {};
         let busqueda = {};
         let andS = []
+
 
         if (search) {
             for (const [key, val] of Object.entries(search)) {
@@ -199,12 +199,12 @@ module.exports = function (router, OBJModel, _Population, CheckSession, _Special
         if (avoid) {
             for (const [key, val] of Object.entries(avoid)) {
                 if (val.toString() === 'true') {
-                    busqueda[key] = { "$ne": true };
+                    busqueda[key] = {"$ne": true};
                 } else if (val.toString() === 'false') {
-                    busqueda[key] = { "$ne": false };
+                    busqueda[key] = {"$ne": false};
                 }
                 else {
-                    busqueda[key] = { "$ne": val };
+                    busqueda[key] = {"$ne": val};
                 }
             }
         }
@@ -217,14 +217,12 @@ module.exports = function (router, OBJModel, _Population, CheckSession, _Special
                     inner.push(sI)
                 }
 
-                andS.push({ $or: inner });
+                andS.push({$or: inner});
             }
 
         }
 
 
-
-        //let query =  OBJModel.find({ name: 'Delhi' });
         let query = OBJModel.find(busqueda);
 
         if (like) {
@@ -252,8 +250,6 @@ module.exports = function (router, OBJModel, _Population, CheckSession, _Special
             });
         }
         query.exec((err, data) => {
-
-
             if (err) {
 
                 return res.status(500).json({
@@ -351,7 +347,8 @@ module.exports = function (router, OBJModel, _Population, CheckSession, _Special
             _addData.post.map(function (item, i, arr) {
                 saveData[item.path] = item.value;
             })
-        };
+        }
+        ;
 
         const obj = new OBJModel(saveData);
 
@@ -434,10 +431,11 @@ module.exports = function (router, OBJModel, _Population, CheckSession, _Special
             _addData.put.map(function (item, i, arr) {
                 newObject[item.path] = item.value;
             })
-        };
+        }
+        ;
 
 
-        await OBJModel.findByIdAndUpdate(req.params.id, { $set: newObject }, (err, data) => {
+        await OBJModel.findByIdAndUpdate(req.params.id, {$set: newObject}, (err, data) => {
             if (err) {
                 res.status(500).json({
                     message: '500 Internal Server Error',

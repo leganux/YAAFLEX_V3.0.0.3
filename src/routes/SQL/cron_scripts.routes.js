@@ -53,6 +53,7 @@ router.post('/', CheckSession, async (req, res) => {
         });
 
 
+
         console.log("\x1b[32m%s\x1b[0m", "******* CRON SCRIP MESSAGE ******");
         console.log("\x1b[36m%s\x1b[0m", "Added " + saveData.description + " with ID " + data.id);
 

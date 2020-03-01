@@ -204,6 +204,41 @@ router.get('/chat', CheckSession, async (req, res) => {
 
 });
 
+if (env.allow_console_on_screen) {
+
+    let laruta = env.url_console_on_screen
+
+    router.get(laruta, async (req, res) => {
+        res.render("front/consoleOnScreen",
+            {
+                rootPath: env.root,
+                socketPath: env.root + env.socket_path,
+                socketPort: env.socket_port,
+                data: {},
+                config: {
+                    theme: env.site_theme.toLowerCase(),
+                    langTexts: JSON.stringify(cFunctions.getUserLang(req)),
+                    path: RoutesConfig,
+                    assets: assets,
+                    filesPath: RoutesConfig.FilesPath
+                },
+                seo: {
+                    title: 'YAAFLEX :: Console Dubug',
+                    description: 'YAAFLEX - yet another amazing framework by leganux',
+                    image: 'http://cdn.leganux.com/IMG/integrado.png',
+                    domain: req.get('host'),
+                    url: req.protocol + '://' + req.get('host') + req.originalUrl,
+                    tw_posted_by: '@leganux',
+                    og_type: 'article',
+                },
+                i18n: cFunctions.getUserLang(req)
+            });
+
+
+    });
+
+}
+
 
 module.exports = router;
 
