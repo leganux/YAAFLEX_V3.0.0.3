@@ -30,7 +30,7 @@
     "jsonwebtoken": "^8.5.1",
     "mariadb": "^2.1.0",
     "moment": "^2.24.0",
-    "mongoose": "^5.6.9",
+    "mongoose": "^5.7.5",
     "mongoose-auto-increment": "^5.0.1",
     "mongoose-datatables": "^3.2.0",
     "mongoose-to-swagger": "0.0.4",
