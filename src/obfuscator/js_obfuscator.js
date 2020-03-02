@@ -47,6 +47,13 @@ let obfuscateFiles = async function (list) {
             let item = list[i];
 
             var data = fs.readFileSync(item, 'utf8');
+
+            data = data + '; function _ABOUT_ (){ ' +
+                'var micad="PCEtLSA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09Cj09PT09PT09PT09PT09PT09PT1MRUdBTlVYPT09PT09PT09PT09PT09PT09PQpUaGlzIGFwcCB3YXMgZGV2ZWxvcGVkIHVzaW5nIFlBQUZMRVggMy4wKyBNSVQgbGljZW5zZQpZQUFGTEVYIGlzIGEgcHJvamVjdCBmcm9tIGxlZ2FudXguY29tIChjKTIwMDcgLSAyMDIwCiBjcmVhdGVkIGFuZCBkZXZlbG9wbWVudCBieSBBbmdlbCBFcmljayBDcnV6IE9saXZlcmEuIAoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioKKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqCkZvciBtb3JlIGluZm9ybWF0aW9uIHZpc2l0OiB3d3cubGVnYW51eC5jb20Kb3IgdGV4dCB1cyB0byA6IGhvbGFAbGVnYW51eC5jb20KSWYgeW91IGxpa2UgdGhpcyBwcm9qZWN0IGdpdmV1cyBhIGRvbm5hdGlvbjogZG9uYXIubGVnYW51eC5jb20KPT09PT09PT09PT09PT09PT09PUxFR0FOVVg9PT09PT09PT09PT09PT09PT09Cj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0gLS0+Cg=="; ' +
+                'console.log(window.atob(micad));' +
+                '$(document).ready(function(){ $(document.head).append(window.atob(micad)); });' +
+                ' } ' +
+                '_ABOUT_();';
             console.log('Processing file ' + Number(i + 1) + ' of ' + howmany + ': ', (Number(i + 1) * 100) / howmany + '% ');
 
 
