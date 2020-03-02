@@ -95,37 +95,30 @@ router.get('/administradores', CheckSession, async (req, res) => {
         return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
-    menuHelper.CP(role, i18n).then(menu => {
-        res.render("backoffice/administradores", {
-            rootPath: env.root,
-            data: {},
-            config: {
-                menu,
-                langTexts: JSON.stringify(cFunctions.getUserLang(req)),
-                path: RoutesConfig,
-                assets: assets,
-                filesPath: RoutesConfig.FilesPath
-            },
-            seo: {
-                title: 'YAAFLEX - Yet another amazing framework by leganux',
-                description: 'YAAFLEX - yet another amazing framework by leganux',
-                image: 'http://cdn.leganux.com/IMG/integrado.png',
-                domain: req.get('host'),
-                url: req.protocol + '://' + req.get('host') + req.originalUrl,
-                tw_posted_by: '@leganux',
-                og_type: 'article',
-            },
-            i18n: cFunctions.getUserLang(req)
+    let menu = await menuHelper.CP(role, i18n);
+    res.render("backoffice/administradores", {
+        rootPath: env.root,
+        data: {},
+        config: {
+            menu,
+            langTexts: JSON.stringify(cFunctions.getUserLang(req)),
+            path: RoutesConfig,
+            assets: assets,
+            filesPath: RoutesConfig.FilesPath
+        },
+        seo: {
+            title: 'YAAFLEX - Yet another amazing framework by leganux',
+            description: 'YAAFLEX - yet another amazing framework by leganux',
+            image: 'http://cdn.leganux.com/IMG/integrado.png',
+            domain: req.get('host'),
+            url: req.protocol + '://' + req.get('host') + req.originalUrl,
+            tw_posted_by: '@leganux',
+            og_type: 'article',
+        },
+        i18n: cFunctions.getUserLang(req)
 
-        });
-    }).catch(err => {
-        if (err) {
-            console.error(err);
-            res.code(500).render('errors/err500')
-            return false;
-        }
     });
-    ;
+
 
 });
 
@@ -138,37 +131,30 @@ router.get('/users', CheckSession, async (req, res) => {
         return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
-    menuHelper.CP(role, i18n).then(menu => {
-        res.render("backoffice/users", {
-            rootPath: env.root,
-            data: {},
-            config: {
-                menu,
-                langTexts: JSON.stringify(cFunctions.getUserLang(req)),
-                path: RoutesConfig,
-                assets: assets,
-                filesPath: RoutesConfig.FilesPath
-            },
-            seo: {
-                title: 'YAAFLEX - Yet another amazing framework by leganux',
-                description: 'YAAFLEX - yet another amazing framework by leganux',
-                image: 'http://cdn.leganux.com/IMG/integrado.png',
-                domain: req.get('host'),
-                url: req.protocol + '://' + req.get('host') + req.originalUrl,
-                tw_posted_by: '@leganux',
-                og_type: 'article',
-            },
-            i18n: cFunctions.getUserLang(req)
+    let menu = await menuHelper.CP(role, i18n);
+    res.render("backoffice/users", {
+        rootPath: env.root,
+        data: {},
+        config: {
+            menu,
+            langTexts: JSON.stringify(cFunctions.getUserLang(req)),
+            path: RoutesConfig,
+            assets: assets,
+            filesPath: RoutesConfig.FilesPath
+        },
+        seo: {
+            title: 'YAAFLEX - Yet another amazing framework by leganux',
+            description: 'YAAFLEX - yet another amazing framework by leganux',
+            image: 'http://cdn.leganux.com/IMG/integrado.png',
+            domain: req.get('host'),
+            url: req.protocol + '://' + req.get('host') + req.originalUrl,
+            tw_posted_by: '@leganux',
+            og_type: 'article',
+        },
+        i18n: cFunctions.getUserLang(req)
 
-        });
-    }).catch(err => {
-        if (err) {
-            console.error(err);
-            res.code(500).render('errors/err500')
-            return false;
-        }
     });
-    ;
+
 
 });
 
@@ -181,37 +167,30 @@ router.get('/roles_admin', CheckSession, async (req, res) => {
         return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
-    menuHelper.CP(role, i18n).then(menu => {
-        res.render("backoffice/roles_admin", {
-            rootPath: env.root,
-            data: {},
-            config: {
-                menu,
-                langTexts: JSON.stringify(cFunctions.getUserLang(req)),
-                path: RoutesConfig,
-                assets: assets,
-                filesPath: RoutesConfig.FilesPath
-            },
-            seo: {
-                title: 'YAAFLEX - Yet another amazing framework by leganux',
-                description: 'YAAFLEX - yet another amazing framework by leganux',
-                image: 'http://cdn.leganux.com/IMG/integrado.png',
-                domain: req.get('host'),
-                url: req.protocol + '://' + req.get('host') + req.originalUrl,
-                tw_posted_by: '@leganux',
-                og_type: 'article',
-            },
-            i18n: cFunctions.getUserLang(req)
+    let menu = await menuHelper.CP(role, i18n);
+    res.render("backoffice/roles_admin", {
+        rootPath: env.root,
+        data: {},
+        config: {
+            menu,
+            langTexts: JSON.stringify(cFunctions.getUserLang(req)),
+            path: RoutesConfig,
+            assets: assets,
+            filesPath: RoutesConfig.FilesPath
+        },
+        seo: {
+            title: 'YAAFLEX - Yet another amazing framework by leganux',
+            description: 'YAAFLEX - yet another amazing framework by leganux',
+            image: 'http://cdn.leganux.com/IMG/integrado.png',
+            domain: req.get('host'),
+            url: req.protocol + '://' + req.get('host') + req.originalUrl,
+            tw_posted_by: '@leganux',
+            og_type: 'article',
+        },
+        i18n: cFunctions.getUserLang(req)
 
-        });
-    }).catch(err => {
-        if (err) {
-            console.error(err);
-            res.code(500).render('errors/err500')
-            return false;
-        }
     });
-    ;
+
 
 });
 
@@ -224,36 +203,30 @@ router.get('/roles_user', CheckSession, async (req, res) => {
         return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
-    menuHelper.CP(role, i18n).then(menu => {
-        res.render("backoffice/roles_user", {
-            rootPath: env.root,
-            data: {},
-            config: {
-                menu,
-                langTexts: JSON.stringify(cFunctions.getUserLang(req)),
-                path: RoutesConfig,
-                assets: assets,
-                filesPath: RoutesConfig.FilesPath
-            },
-            seo: {
-                title: 'YAAFLEX - Yet another amazing framework by leganux',
-                description: 'YAAFLEX - yet another amazing framework by leganux',
-                image: 'http://cdn.leganux.com/IMG/integrado.png',
-                domain: req.get('host'),
-                url: req.protocol + '://' + req.get('host') + req.originalUrl,
-                tw_posted_by: '@leganux',
-                og_type: 'article',
-            },
-            i18n: cFunctions.getUserLang(req)
+    let menu = await menuHelper.CP(role, i18n);
+    res.render("backoffice/roles_user", {
+        rootPath: env.root,
+        data: {},
+        config: {
+            menu,
+            langTexts: JSON.stringify(cFunctions.getUserLang(req)),
+            path: RoutesConfig,
+            assets: assets,
+            filesPath: RoutesConfig.FilesPath
+        },
+        seo: {
+            title: 'YAAFLEX - Yet another amazing framework by leganux',
+            description: 'YAAFLEX - yet another amazing framework by leganux',
+            image: 'http://cdn.leganux.com/IMG/integrado.png',
+            domain: req.get('host'),
+            url: req.protocol + '://' + req.get('host') + req.originalUrl,
+            tw_posted_by: '@leganux',
+            og_type: 'article',
+        },
+        i18n: cFunctions.getUserLang(req)
 
-        });
-    }).catch(err => {
-        if (err) {
-            console.error(err);
-            res.code(500).render('errors/err500')
-            return false;
-        }
     });
+
 
 });
 
@@ -266,36 +239,30 @@ router.get('/routes_access', CheckSession, async (req, res) => {
         return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
-    menuHelper.CP(role, i18n).then(menu => {
-        res.render("backoffice/routes_access", {
-            rootPath: env.root,
-            data: {},
-            config: {
-                menu,
-                langTexts: JSON.stringify(cFunctions.getUserLang(req)),
-                path: RoutesConfig,
-                assets: assets,
-                filesPath: RoutesConfig.FilesPath
-            },
-            seo: {
-                title: 'YAAFLEX - Yet another amazing framework by leganux',
-                description: 'YAAFLEX - yet another amazing framework by leganux',
-                image: 'http://cdn.leganux.com/IMG/integrado.png',
-                domain: req.get('host'),
-                url: req.protocol + '://' + req.get('host') + req.originalUrl,
-                tw_posted_by: '@leganux',
-                og_type: 'article',
-            },
-            i18n: cFunctions.getUserLang(req)
+    let menu = await menuHelper.CP(role, i18n);
+    res.render("backoffice/routes_access", {
+        rootPath: env.root,
+        data: {},
+        config: {
+            menu,
+            langTexts: JSON.stringify(cFunctions.getUserLang(req)),
+            path: RoutesConfig,
+            assets: assets,
+            filesPath: RoutesConfig.FilesPath
+        },
+        seo: {
+            title: 'YAAFLEX - Yet another amazing framework by leganux',
+            description: 'YAAFLEX - yet another amazing framework by leganux',
+            image: 'http://cdn.leganux.com/IMG/integrado.png',
+            domain: req.get('host'),
+            url: req.protocol + '://' + req.get('host') + req.originalUrl,
+            tw_posted_by: '@leganux',
+            og_type: 'article',
+        },
+        i18n: cFunctions.getUserLang(req)
 
-        });
-    }).catch(err => {
-        if (err) {
-            console.error(err);
-            res.code(500).render('errors/err500')
-            return false;
-        }
     });
+
 
 });
 
@@ -308,37 +275,30 @@ router.get('/routes_access_user', CheckSession, async (req, res) => {
         return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
-    menuHelper.CP(role, i18n).then(menu => {
-        res.render("backoffice/routes_access_user", {
-            rootPath: env.root,
-            data: {},
-            config: {
-                menu,
-                langTexts: JSON.stringify(cFunctions.getUserLang(req)),
-                path: RoutesConfig,
-                assets: assets,
-                filesPath: RoutesConfig.FilesPath
-            },
-            seo: {
-                title: 'YAAFLEX - Yet another amazing framework by leganux',
-                description: 'YAAFLEX - yet another amazing framework by leganux',
-                image: 'http://cdn.leganux.com/IMG/integrado.png',
-                domain: req.get('host'),
-                url: req.protocol + '://' + req.get('host') + req.originalUrl,
-                tw_posted_by: '@leganux',
-                og_type: 'article',
-            },
-            i18n: cFunctions.getUserLang(req)
+    let menu = await menuHelper.CP(role, i18n);
+    res.render("backoffice/routes_access_user", {
+        rootPath: env.root,
+        data: {},
+        config: {
+            menu,
+            langTexts: JSON.stringify(cFunctions.getUserLang(req)),
+            path: RoutesConfig,
+            assets: assets,
+            filesPath: RoutesConfig.FilesPath
+        },
+        seo: {
+            title: 'YAAFLEX - Yet another amazing framework by leganux',
+            description: 'YAAFLEX - yet another amazing framework by leganux',
+            image: 'http://cdn.leganux.com/IMG/integrado.png',
+            domain: req.get('host'),
+            url: req.protocol + '://' + req.get('host') + req.originalUrl,
+            tw_posted_by: '@leganux',
+            og_type: 'article',
+        },
+        i18n: cFunctions.getUserLang(req)
 
-        });
-
-    }).catch(err => {
-        if (err) {
-            console.error(err);
-            res.code(500).render('errors/err500')
-            return false;
-        }
     });
+
 
 });
 
@@ -351,36 +311,30 @@ router.get('/file_manager', CheckSession, async (req, res) => {
         return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
-    menuHelper.CP(role, i18n).then(menu => {
-        res.render("backoffice/file_manager", {
-            rootPath: env.root,
-            data: {},
-            config: {
-                menu,
-                langTexts: JSON.stringify(cFunctions.getUserLang(req)),
-                path: RoutesConfig,
-                assets: assets,
-                filesPath: RoutesConfig.FilesPath
-            },
-            seo: {
-                title: 'YAAFLEX - Yet another amazing framework by leganux',
-                description: 'YAAFLEX - yet another amazing framework by leganux',
-                image: 'http://cdn.leganux.com/IMG/integrado.png',
-                domain: req.get('host'),
-                url: req.protocol + '://' + req.get('host') + req.originalUrl,
-                tw_posted_by: '@leganux',
-                og_type: 'article',
-            },
-            i18n: cFunctions.getUserLang(req)
+    let menu = await menuHelper.CP(role, i18n);
+    res.render("backoffice/file_manager", {
+        rootPath: env.root,
+        data: {},
+        config: {
+            menu,
+            langTexts: JSON.stringify(cFunctions.getUserLang(req)),
+            path: RoutesConfig,
+            assets: assets,
+            filesPath: RoutesConfig.FilesPath
+        },
+        seo: {
+            title: 'YAAFLEX - Yet another amazing framework by leganux',
+            description: 'YAAFLEX - yet another amazing framework by leganux',
+            image: 'http://cdn.leganux.com/IMG/integrado.png',
+            domain: req.get('host'),
+            url: req.protocol + '://' + req.get('host') + req.originalUrl,
+            tw_posted_by: '@leganux',
+            og_type: 'article',
+        },
+        i18n: cFunctions.getUserLang(req)
 
-        });
-    }).catch(err => {
-        if (err) {
-            console.error(err);
-            res.code(500).render('errors/err500')
-            return false;
-        }
     });
+
 
 });
 
@@ -393,38 +347,29 @@ router.get('/articles', CheckSession, async (req, res) => {
         return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
-    menuHelper.CP(role, i18n).then(menu => {
-        res.render("backoffice/articles", {
-            rootPath: env.root,
-            data: {},
-            config: {
-                menu,
-                langTexts: JSON.stringify(cFunctions.getUserLang(req)),
-                path: RoutesConfig,
-                assets: assets,
-                filesPath: RoutesConfig.FilesPath
-            },
-            seo: {
-                title: 'YAAFLEX - Yet another amazing framework by leganux',
-                description: 'YAAFLEX - yet another amazing framework by leganux',
-                image: 'http://cdn.leganux.com/IMG/integrado.png',
-                domain: req.get('host'),
-                url: req.protocol + '://' + req.get('host') + req.originalUrl,
-                tw_posted_by: '@leganux',
-                og_type: 'article',
-            },
-            i18n: cFunctions.getUserLang(req)
+    let menu = await menuHelper.CP(role, i18n);
+    res.render("backoffice/articles", {
+        rootPath: env.root,
+        data: {},
+        config: {
+            menu,
+            langTexts: JSON.stringify(cFunctions.getUserLang(req)),
+            path: RoutesConfig,
+            assets: assets,
+            filesPath: RoutesConfig.FilesPath
+        },
+        seo: {
+            title: 'YAAFLEX - Yet another amazing framework by leganux',
+            description: 'YAAFLEX - yet another amazing framework by leganux',
+            image: 'http://cdn.leganux.com/IMG/integrado.png',
+            domain: req.get('host'),
+            url: req.protocol + '://' + req.get('host') + req.originalUrl,
+            tw_posted_by: '@leganux',
+            og_type: 'article',
+        },
+        i18n: cFunctions.getUserLang(req)
 
-        });
-
-    }).catch(err => {
-        if (err) {
-            console.error(err);
-            res.code(500).render('errors/err500')
-            return false;
-        }
     });
-
 });
 
 router.get('/api_functions', CheckSession, async (req, res) => {
@@ -436,37 +381,30 @@ router.get('/api_functions', CheckSession, async (req, res) => {
         return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
-    menuHelper.CP(role, i18n).then(menu => {
-        res.render("backoffice/api_functions", {
-            rootPath: env.root,
-            data: {},
-            config: {
-                menu,
-                langTexts: JSON.stringify(cFunctions.getUserLang(req)),
-                path: RoutesConfig,
-                assets: assets,
-                filesPath: RoutesConfig.FilesPath
-            },
-            seo: {
-                title: 'YAAFLEX - Yet another amazing framework by leganux',
-                description: 'YAAFLEX - yet another amazing framework by leganux',
-                image: 'http://cdn.leganux.com/IMG/integrado.png',
-                domain: req.get('host'),
-                url: req.protocol + '://' + req.get('host') + req.originalUrl,
-                tw_posted_by: '@leganux',
-                og_type: 'article',
-            },
-            i18n: cFunctions.getUserLang(req)
+    let menu = await menuHelper.CP(role, i18n);
+    res.render("backoffice/api_functions", {
+        rootPath: env.root,
+        data: {},
+        config: {
+            menu,
+            langTexts: JSON.stringify(cFunctions.getUserLang(req)),
+            path: RoutesConfig,
+            assets: assets,
+            filesPath: RoutesConfig.FilesPath
+        },
+        seo: {
+            title: 'YAAFLEX - Yet another amazing framework by leganux',
+            description: 'YAAFLEX - yet another amazing framework by leganux',
+            image: 'http://cdn.leganux.com/IMG/integrado.png',
+            domain: req.get('host'),
+            url: req.protocol + '://' + req.get('host') + req.originalUrl,
+            tw_posted_by: '@leganux',
+            og_type: 'article',
+        },
+        i18n: cFunctions.getUserLang(req)
 
-        });
-
-    }).catch(err => {
-        if (err) {
-            console.error(err);
-            res.code(500).render('errors/err500')
-            return false;
-        }
     });
+
 
 });
 
@@ -479,37 +417,30 @@ router.get('/cron_functions', CheckSession, async (req, res) => {
         return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
-    menuHelper.CP(role, i18n).then(menu => {
-        res.render("backoffice/cron_functions", {
-            rootPath: env.root,
-            data: {},
-            config: {
-                menu,
-                langTexts: JSON.stringify(cFunctions.getUserLang(req)),
-                path: RoutesConfig,
-                assets: assets,
-                filesPath: RoutesConfig.FilesPath
-            },
-            seo: {
-                title: 'YAAFLEX - Yet another amazing framework by leganux',
-                description: 'YAAFLEX - yet another amazing framework by leganux',
-                image: 'http://cdn.leganux.com/IMG/integrado.png',
-                domain: req.get('host'),
-                url: req.protocol + '://' + req.get('host') + req.originalUrl,
-                tw_posted_by: '@leganux',
-                og_type: 'article',
-            },
-            i18n: cFunctions.getUserLang(req)
+    let menu = await menuHelper.CP(role, i18n);
+    res.render("backoffice/cron_functions", {
+        rootPath: env.root,
+        data: {},
+        config: {
+            menu,
+            langTexts: JSON.stringify(cFunctions.getUserLang(req)),
+            path: RoutesConfig,
+            assets: assets,
+            filesPath: RoutesConfig.FilesPath
+        },
+        seo: {
+            title: 'YAAFLEX - Yet another amazing framework by leganux',
+            description: 'YAAFLEX - yet another amazing framework by leganux',
+            image: 'http://cdn.leganux.com/IMG/integrado.png',
+            domain: req.get('host'),
+            url: req.protocol + '://' + req.get('host') + req.originalUrl,
+            tw_posted_by: '@leganux',
+            og_type: 'article',
+        },
+        i18n: cFunctions.getUserLang(req)
 
-        });
-
-    }).catch(err => {
-        if (err) {
-            console.error(err);
-            res.code(500).render('errors/err500')
-            return false;
-        }
     });
+
 
 });
 
@@ -522,37 +453,30 @@ router.get('/places', CheckSession, async (req, res) => {
         return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
-    menuHelper.CP(role, i18n).then(menu => {
-        res.render("backoffice/places", {
-            rootPath: env.root,
-            data: {},
-            config: {
-                menu,
-                langTexts: JSON.stringify(cFunctions.getUserLang(req)),
-                path: RoutesConfig,
-                assets: assets,
-                filesPath: RoutesConfig.FilesPath
-            },
-            seo: {
-                title: 'YAAFLEX - Yet another amazing framework by leganux',
-                description: 'YAAFLEX - yet another amazing framework by leganux',
-                image: 'http://cdn.leganux.com/IMG/integrado.png',
-                domain: req.get('host'),
-                url: req.protocol + '://' + req.get('host') + req.originalUrl,
-                tw_posted_by: '@leganux',
-                og_type: 'article',
-            },
-            i18n: cFunctions.getUserLang(req)
+    let menu = await menuHelper.CP(role, i18n);
+    res.render("backoffice/places", {
+        rootPath: env.root,
+        data: {},
+        config: {
+            menu,
+            langTexts: JSON.stringify(cFunctions.getUserLang(req)),
+            path: RoutesConfig,
+            assets: assets,
+            filesPath: RoutesConfig.FilesPath
+        },
+        seo: {
+            title: 'YAAFLEX - Yet another amazing framework by leganux',
+            description: 'YAAFLEX - yet another amazing framework by leganux',
+            image: 'http://cdn.leganux.com/IMG/integrado.png',
+            domain: req.get('host'),
+            url: req.protocol + '://' + req.get('host') + req.originalUrl,
+            tw_posted_by: '@leganux',
+            og_type: 'article',
+        },
+        i18n: cFunctions.getUserLang(req)
 
-        });
-
-    }).catch(err => {
-        if (err) {
-            console.error(err);
-            res.code(500).render('errors/err500')
-            return false;
-        }
     });
+
 
 });
 
@@ -565,35 +489,28 @@ router.get('/dinamic_pages', CheckSession, async (req, res) => {
         return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
-    menuHelper.CP(role, i18n).then(menu => {
-        res.render("backoffice/dinamic_pages", {
-            rootPath: env.root,
-            data: {},
-            config: {
-                menu,
-                langTexts: JSON.stringify(cFunctions.getUserLang(req)),
-                path: RoutesConfig,
-                assets: assets,
-                filesPath: RoutesConfig.FilesPath
-            },
-            seo: {
-                title: 'YAAFLEX - Yet another amazing framework by leganux',
-                description: 'YAAFLEX - yet another amazing framework by leganux',
-                image: 'http://cdn.leganux.com/IMG/integrado.png',
-                domain: req.get('host'),
-                url: req.protocol + '://' + req.get('host') + req.originalUrl,
-                tw_posted_by: '@leganux',
-                og_type: 'article',
-            },
-            i18n: cFunctions.getUserLang(req)
+    let menu = await menuHelper.CP(role, i18n);
+    res.render("backoffice/dinamic_pages", {
+        rootPath: env.root,
+        data: {},
+        config: {
+            menu,
+            langTexts: JSON.stringify(cFunctions.getUserLang(req)),
+            path: RoutesConfig,
+            assets: assets,
+            filesPath: RoutesConfig.FilesPath
+        },
+        seo: {
+            title: 'YAAFLEX - Yet another amazing framework by leganux',
+            description: 'YAAFLEX - yet another amazing framework by leganux',
+            image: 'http://cdn.leganux.com/IMG/integrado.png',
+            domain: req.get('host'),
+            url: req.protocol + '://' + req.get('host') + req.originalUrl,
+            tw_posted_by: '@leganux',
+            og_type: 'article',
+        },
+        i18n: cFunctions.getUserLang(req)
 
-        });
-    }).catch(err => {
-        if (err) {
-            console.error(err);
-            res.code(500).render('errors/err500')
-            return false;
-        }
     });
 
 });
@@ -624,37 +541,30 @@ router.get('/BaaSDef', CheckSession, async (req, res) => {
         return res.status(403).redirect(env.root + '/');
     }
     var i18n = cFunctions.getUserLang(req);
-    menuHelper.CP(role, i18n).then(menu => {
-        res.render("backoffice/BaaSDef", {
-            rootPath: env.root,
-            data: {},
-            config: {
-                menu,
-                langTexts: JSON.stringify(cFunctions.getUserLang(req)),
-                path: RoutesConfig,
-                assets: assets,
-                filesPath: RoutesConfig.FilesPath
-            },
-            seo: {
-                title: 'YAAFLEX - Yet another amazing framework by leganux',
-                description: 'YAAFLEX - yet another amazing framework by leganux',
-                image: 'http://cdn.leganux.com/IMG/integrado.png',
-                domain: req.get('host'),
-                url: req.protocol + '://' + req.get('host') + req.originalUrl,
-                tw_posted_by: '@leganux',
-                og_type: 'article',
-            },
-            i18n: cFunctions.getUserLang(req)
+    let menu = await menuHelper.CP(role, i18n);
+    res.render("backoffice/BaaSDef", {
+        rootPath: env.root,
+        data: {},
+        config: {
+            menu,
+            langTexts: JSON.stringify(cFunctions.getUserLang(req)),
+            path: RoutesConfig,
+            assets: assets,
+            filesPath: RoutesConfig.FilesPath
+        },
+        seo: {
+            title: 'YAAFLEX - Yet another amazing framework by leganux',
+            description: 'YAAFLEX - yet another amazing framework by leganux',
+            image: 'http://cdn.leganux.com/IMG/integrado.png',
+            domain: req.get('host'),
+            url: req.protocol + '://' + req.get('host') + req.originalUrl,
+            tw_posted_by: '@leganux',
+            og_type: 'article',
+        },
+        i18n: cFunctions.getUserLang(req)
 
-        });
-
-    }).catch(err => {
-        if (err) {
-            console.error(err);
-            res.code(500).render('errors/err500')
-            return false;
-        }
     });
+
 
 });
 

@@ -87,26 +87,59 @@ var Menu = {
 }
 
 
-func.CP = function (role, i18n) {
-    return RotesAdmin.find({roles: role}).exec().then(data => {
-        var arr = [];
-        data.map((item) => {
-            arr.push(env.root + item.path)
-        })
-        return arr;
-    }).then((dta) => {
-        var miarr = []
-        Menu.CP.map(function (item) {
-            if (dta.includes(item.path)) {
+func.CP = async function (role, i18n) {
+    if (!role || !i18n) {
+        return false
+    }
+    try {
+        let data = await RotesAdmin.find({roles: role});
+
+        let arr = data.map((item) => {
+            return env.root + item.path;
+        });
+
+
+        let miarr = Menu.CP.map(function (item) {
+            if (arr.includes(item.path)) {
                 item.txt = i18n[item.name.toLowerCase()]
-                miarr.push(item);
+                return item;
             }
         });
         return miarr;
-    });
-}
-func.Site = async function (role, arrlinks) {
 
+    } catch (err) {
+        console.error(err)
+        return false;
+    }
+
+
+};
+
+
+func.Site = async function (role, i18n) {
+    if (!role || !i18n) {
+        return false
+    }
+    try {
+        let data = await RotesUser.find({roles: role});
+
+        let arr = data.map((item) => {
+            return env.root + item.path;
+        });
+
+
+        let miarr = Menu.Site.map(function (item) {
+            if (arr.includes(item.path)) {
+                item.txt = i18n[item.name.toLowerCase()]
+                return item;
+            }
+        });
+        return miarr;
+
+    } catch (err) {
+        console.error(err)
+        return false;
+    }
 }
 
 module.exports = func;

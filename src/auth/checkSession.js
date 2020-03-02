@@ -143,7 +143,6 @@ var setSessionBasic = async function (req, res, token) {
 async function loggedIn(req, res, next) {
     //next(); return 0;   // uncomment this line to allow access all urls
 
-    console.info(req.user)
 
     if (req.user && req.user.isFromAPI) {
         req.logIn(false, function (erroe) {
