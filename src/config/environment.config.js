@@ -39,7 +39,9 @@ module.exports = {
     allow_cors: eval(process.env.ALLOW_ALL_ACCES_ORINGIN_ACTIVED),
     allow_cors_domain: process.env.CORS_DOMAIN_AOLLWED,
     allow_console_on_screen: eval(process.env.ALLOW_CONSOLE_ON_SCREEN),
-    url_console_on_screen: process.env.URL_CONSOLE_ON_SCREEN
+    url_console_on_screen: process.env.URL_CONSOLE_ON_SCREEN,
+    list_of_paths: process.env.LIST_OF_PATHS.split(','),
+    new_dir_suffix: process.env.NEW_DIR_SUFFIX
 
 }
 
