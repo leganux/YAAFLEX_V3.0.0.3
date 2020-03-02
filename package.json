@@ -50,7 +50,7 @@
     "socket.io": "^2.2.0",
     "sqlite3": "^4.0.9",
     "swagger-ui-express": "^4.0.7",
-    "yarn": "^1.17.3"
+    "yarn": "^1.22.0"
   },
   "devDependencies": {
     "dumper.js": "^1.3.1",
