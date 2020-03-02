@@ -3,10 +3,25 @@ var env = require('./../config/environment.config')
 const saltRounds = env.bcrypt_salt_rounds;
 const moment = require('moment');
 
-module.exports = function (router, OBJModel, _Population, CheckSession, _Special, _addData) {
+const CheckSession = require('./../auth/checkSession');
+const noCheckSession = require('./../auth/noCheckSession')
+
+module.exports = function (router, OBJModel, _Population, middelwareSession, _Special, _addData) {
+
+
+    if (!middelwareSession) {
+
+         middelwareSession = {
+            get: true,
+            post: true,
+            put: true,
+            delete: true,
+        }
+    }
+
 
     // get firts element
-    router.get('/first/', CheckSession, async (req, res) => {
+    router.get('/first/', middelwareSession.get ? CheckSession : noCheckSession, async (req, res) => {
         const {sort, search, paginate, strictsearch, avoid, like} = req.query;
         let order = {};
         let busqueda = {};
@@ -114,7 +129,7 @@ module.exports = function (router, OBJModel, _Population, CheckSession, _Special
     });
 
     // GET one  Object find
-    router.get('/find/', CheckSession, async (req, res) => {
+    router.get('/find/', middelwareSession.get ? CheckSession : noCheckSession, async (req, res) => {
         const {strictsearch, avoid, select} = req.query;
 
         let busqueda = {};
@@ -172,8 +187,7 @@ module.exports = function (router, OBJModel, _Population, CheckSession, _Special
     });
 
     // GET all Objects
-    router.get('/', CheckSession, async (req, res) => {
-
+    router.get('/', middelwareSession.get ? CheckSession : noCheckSession, async (req, res) => {
 
 
         const {sort, search, paginate, strictsearch, avoid, like, select} = req.query;
@@ -278,7 +292,7 @@ module.exports = function (router, OBJModel, _Population, CheckSession, _Special
     });
 
     // GET  one  object by ID
-    router.get('/:id', CheckSession, async (req, res) => {
+    router.get('/:id', middelwareSession.get ? CheckSession : noCheckSession, async (req, res) => {
         let query = OBJModel.findById(req.params.id);
 
         if (_Population && _Population.length > 0) {
@@ -312,7 +326,7 @@ module.exports = function (router, OBJModel, _Population, CheckSession, _Special
     });
 
     // ADD  new
-    router.post('/', CheckSession, async (req, res) => {
+    router.post('/', middelwareSession.post ? CheckSession : noCheckSession, async (req, res) => {
         const saveData = req.body;
 
         if (_Special && _Special.post && _Special.post.length > 0) {
@@ -381,7 +395,7 @@ module.exports = function (router, OBJModel, _Population, CheckSession, _Special
     });
 
     // UPDATE 
-    router.put('/:id', CheckSession, async (req, res) => {
+    router.put('/:id', middelwareSession.put ? CheckSession : noCheckSession, async (req, res) => {
         const json = req.body;
         const newObject = {};
 
@@ -462,7 +476,7 @@ module.exports = function (router, OBJModel, _Population, CheckSession, _Special
     });
 
     // Delete 
-    router.delete('/:id', CheckSession, async (req, res) => {
+    router.delete('/:id', middelwareSession.delete ? CheckSession : noCheckSession, async (req, res) => {
         await OBJModel.findByIdAndRemove(req.params.id, (err, data) => {
             if (err) {
                 console.error(err)

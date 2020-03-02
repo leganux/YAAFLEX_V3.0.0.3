@@ -1,15 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const CheckSession = require('../../auth/checkSession');
-var env = require('../../config/environment.config');
-const BuildBasicSQLQueries = require('../../helpers/general_sql_query.helper');
-
-const BuildBasicQueries = require('../../helpers/general_query.helper')
-
 const mongoose = require('mongoose');
-const {Schema} = mongoose;
-var dataTables = require('mongoose-datatables')
-
 let moment = require('moment')
 
 

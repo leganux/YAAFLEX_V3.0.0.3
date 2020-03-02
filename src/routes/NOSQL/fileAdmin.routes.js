@@ -12,17 +12,22 @@ const OBJModel = require('../../models/NOSQL/fileAdmin.model');
 //population
 const _Population = [];
 
-const _Special = {
+const _Special = {}
+
+const _addData = {}
+
+const middlewaresSession = {
+    get: true,
+    post: true,
+    put: true,
+    delete: true,
 }
 
-const _addData = {
-}
-
-BuildBasicQueries(router, OBJModel, false, CheckSession, false, false)
+BuildBasicQueries(router, OBJModel, false, middlewaresSession, false, false)
 
 
 router.delete('/FP/:id', CheckSession, async (req, res) => {
-    const { path } = req.body;
+    const {path} = req.body;
     ID = req.params.id;
 
     try {
@@ -31,7 +36,7 @@ router.delete('/FP/:id', CheckSession, async (req, res) => {
 
         await OBJModel.findByIdAndRemove(req.params.id, (err, data) => {
             if (err) {
-            
+
                 res.status(500).json({
                     message: '500 Internal Server Error',
                     errror: err,
@@ -55,13 +60,6 @@ router.delete('/FP/:id', CheckSession, async (req, res) => {
             success: false
         })
     }
-
-
-
-
-
-
-
 
 
 });

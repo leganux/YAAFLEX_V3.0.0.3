@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const CheckSession = require('../../auth/checkSession')
-var env = require('../../config/environment.config')
-const BuildBasicSQLQueries = require('../../helpers/general_sql_query.helper')
+
 
 
 //Definimos el modelo

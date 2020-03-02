@@ -8,14 +8,12 @@ let listOfModelNames = {};
 const express = require('express');
 const router = express.Router();
 const CheckSession = require('../../auth/checkSession');
-var env = require('../../config/environment.config');
+
 var moment = require('moment')
 
-var vt = 'x,String,Number,Date,Buffer,Boolean,Mixed,SchemaSingle,SchemaArray,Array'.split(',');
 
-const BuildBasicSQLQueries = require('../../helpers/general_sql_query.helper');
 
-const BuildBasicQueries = require('../../helpers/general_query.helper')
+
 
 const mongoose = require('mongoose');
 const {Schema} = mongoose;

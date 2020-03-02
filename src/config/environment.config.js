@@ -7,7 +7,7 @@ if (result.error) {
 }
 
 
-module.exports = {
+leganux_config = {
     environment: process.env.ENVIRONMENT, //'development', // development, qa, production
     session_server: process.env.SESSION_SERVER, // 'redis', // redis, standalone
     activeSSL: eval(process.env.ACTIVE_SSL),// false, // true , false
@@ -41,10 +41,19 @@ module.exports = {
     allow_console_on_screen: eval(process.env.ALLOW_CONSOLE_ON_SCREEN),
     url_console_on_screen: process.env.URL_CONSOLE_ON_SCREEN,
     list_of_paths: process.env.LIST_OF_PATHS.split(','),
-    new_dir_suffix: process.env.NEW_DIR_SUFFIX
+    new_dir_suffix: process.env.NEW_DIR_SUFFIX,
+    allow_debug_panel_screen: eval(process.env.ALLOW_DEBUG_PANEL_ON_SCREEN),
+    url_debug_panel_on_screen: process.env.URL_DEBUG_PANE_SCREEN,
 
 }
 
+
+if (leganux_config.environment == 'production') {
+    leganux_config.allow_debug_panel_screen = false;
+    leganux_config.allow_console_on_screen = false;
+}
+
+module.exports = leganux_config;
 
 /**
  * Available themes preview  on  https://bootswatch.com v4.3.1

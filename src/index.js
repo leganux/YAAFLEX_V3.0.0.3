@@ -385,3 +385,11 @@ app.set("views", path.join(__dirname, "views"));
 app.use(function (req, res) {
     res.status('404').render("errors/err404", {});
 });
+
+
+if (env.allow_debug_panel_screen) {
+    require('express-debug')(app, {
+        path: env.root + env.url_debug_panel_on_screen,
+        panels: ['locals', 'request', 'session', 'software_info']
+    });
+}

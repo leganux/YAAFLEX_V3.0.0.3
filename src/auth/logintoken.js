@@ -51,7 +51,8 @@ router.post('/getAdminToken', (req, res) => {
                 prop: {
                     kind: 'admin',
                     role: user.role
-                }
+                },
+                isFromAPI: true
             };
 
 
@@ -113,7 +114,8 @@ router.post('/getUserToken', (req, res) => {
                 session: user,
                 prop: {
                     isAdmin: false,
-                }
+                },
+                isFromAPI: true
             };
 
 
@@ -128,7 +130,6 @@ router.post('/getUserToken', (req, res) => {
 
         });
 
-
     });
 
 
@@ -136,6 +137,11 @@ router.post('/getUserToken', (req, res) => {
 
 router.get('/verify', (req, res) => {
     var authToken = req.headers.authorization;
+
+    if (authToken.includes('Bearer')) {
+        authToken = authToken.replace('Bearer ', '')
+    }
+
 
     if (!authToken) {
         return res.status(404).json({
@@ -146,8 +152,8 @@ router.get('/verify', (req, res) => {
 
     jwt.verify(authToken, global.JWT_Secret, function (err, decoded) {
         if (err) {
-            return res.status(500).json({
-                message: '500 Internal Server Error',
+            return res.status(403).json({
+                message: '403 forbidden',
                 error: err,
                 success: false
             })

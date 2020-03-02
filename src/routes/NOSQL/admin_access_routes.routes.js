@@ -2,10 +2,8 @@ const express = require('express');
 const router = express.Router();
 const CheckSession = require('../../auth/checkSession')
 const BuildBasicQueries = require('../../helpers/general_query.helper')
-var env = require('../../config/environment.config')
-const saltRounds = env.bcrypt_salt_rounds;
+
 const moment = require('moment');
-const bcrypt = require('bcryptjs');
 
 
 //Model
@@ -30,6 +28,13 @@ const _addData = {
     put: []
 }
 
-BuildBasicQueries(router, OBJModel, _Population, CheckSession, false, false)
+const middlewaresSession = {
+    get: true,
+    post: true,
+    put: true,
+    delete: true,
+}
+
+BuildBasicQueries(router, OBJModel, _Population, middlewaresSession, false, false)
 
 module.exports = router;

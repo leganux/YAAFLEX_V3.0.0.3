@@ -16,7 +16,14 @@ const _Special = {}
 
 const _addData = {}
 
-BuildBasicQueries(router, OBJModel, false, CheckSession, false, false)
+const middlewaresSession = {
+    get: true,
+    post: true,
+    put: true,
+    delete: true,
+}
+
+BuildBasicQueries(router, OBJModel, false, middlewaresSession, false, false)
 
 router.post('/datatable', CheckSession, async (req, res) => {
 

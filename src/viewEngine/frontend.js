@@ -22,7 +22,7 @@ const GetPages = function (F_) {
 }
 
 //get the home page
-router.get('/', CheckSession, async (req, res) => {
+router.get('/', async (req, res) => {
     GetPages(function (pages) {
         res.render("front/home",
             {
@@ -52,7 +52,7 @@ router.get('/', CheckSession, async (req, res) => {
 });
 
 //blog list
-router.get('/blog', CheckSession, async (req, res) => {
+router.get('/blog', async (req, res) => {
     GetPages(function (pages) {
         res.render("front/blog",
             {
@@ -83,7 +83,7 @@ router.get('/blog', CheckSession, async (req, res) => {
 
 
 // get the dinamic page
-router.get('/page/:name', CheckSession, async (req, res) => {
+router.get('/page/:name', async (req, res) => {
     var name = req.params.name;
     name = name.trim()
 
@@ -127,7 +127,7 @@ router.get('/page/:name', CheckSession, async (req, res) => {
 });
 
 // get the article
-router.get('/article/:name', CheckSession, async (req, res) => {
+router.get('/article/:name', async (req, res) => {
     var name = req.params.name;
     name = name.trim()
 
@@ -171,7 +171,7 @@ router.get('/article/:name', CheckSession, async (req, res) => {
 });
 
 //SupportChat
-router.get('/chat', CheckSession, async (req, res) => {
+router.get('/chat', async (req, res) => {
     GetPages(function (pages) {
 
 

@@ -9,9 +9,6 @@ const env =require('./../config/environment.config')
 
 
 
-
-
-
 passport.use(new Strategy({
     clientID: fbconfig.facebook_api_key,
     clientSecret: fbconfig.facebook_api_secret,

@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const CheckSession = require('../../auth/checkSession')
 const BuildBasicQueries = require('../../helpers/general_query.helper')
 const moment = require('moment')
 
@@ -38,6 +37,12 @@ const _addData = {
     }]
 }
 
-BuildBasicQueries(router, OBJModel, _Population, CheckSession, _Special, _addData)
+const middlewaresSession = {
+    get: true,
+    post: true,
+    put: true,
+    delete: true,
+}
+BuildBasicQueries(router, OBJModel, _Population, middlewaresSession, _Special, _addData)
 
 module.exports = router;
