@@ -7,7 +7,7 @@
     "start": "node src/index.js",
     "obfuscate": "node src/obfuscator/js_obfuscator.js",
     "restore_obf": "node src/obfuscator/restore_bkup.js",
-    "yaaflex": "nodemon src/index.js"
+    "yaaflex": "nodemon src/index.js --ignore 'src/helpers/*.json' "
   },
   "keywords": [],
   "author": "leganux.com, Angel Erick Cruz Olivera",

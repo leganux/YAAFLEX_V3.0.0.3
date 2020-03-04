@@ -63,6 +63,15 @@ module.exports = function (router, Model, middelwareSession) {
             where = {where: strictsearch}
         }
 
+        /*if (like) {
+         for (const [key, val] of Object.entries(like)) {
+         busqueda[key] = { $like: '%' + val + '%'};
+         }
+         where = {where: busqueda}
+         }*/
+
+        console.log('BUSQUEDA', busqueda)
+
 
         Model.findAll(where).then(data => {
             if (!data) {
@@ -72,10 +81,28 @@ module.exports = function (router, Model, middelwareSession) {
                     success: false
                 })
             }
+
+            let newData = [];
+            if (like) {
+                data.map(function (item, i) {
+
+                    for (const [key, val] of Object.entries(like)) {
+                        busqueda[key] = {$like: '%' + val + '%'};
+                        if (item[key] && item[key].includes(val)) {
+                            newData.push(item)
+                        }
+                    }
+
+                });
+            } else {
+                newData = data;
+            }
+
+
             res.status(200).json({
                 message: 'OK',
-                data: data,
-                count: data.length,
+                data: newData,
+                count: newData.length,
                 success: true
             })
         }).catch((err) => {

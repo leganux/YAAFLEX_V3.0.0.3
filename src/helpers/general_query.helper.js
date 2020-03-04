@@ -364,8 +364,7 @@ module.exports = function (router, OBJModel, _Population, middelwareSession, _Sp
             _addData.post.map(function (item, i, arr) {
                 saveData[item.path] = item.value;
             })
-        }
-        ;
+        };
 
         const obj = new OBJModel(saveData);
 
