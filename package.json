@@ -13,7 +13,7 @@
   "author": "leganux.com, Angel Erick Cruz Olivera",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "check-disk-space": "^1.5.0",
     "connect": "^3.6.6",
