@@ -44,7 +44,7 @@
     "passport-instagram": "^1.0.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "redis": "^2.8.0",
     "sequelize": "^5.21.2",
     "socket.io": "^2.2.0",
