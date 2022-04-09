@@ -29,7 +29,7 @@
     "fs-extra": "^8.1.0",
     "jsonwebtoken": "^8.5.1",
     "mariadb": "^2.1.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "mongoose": "^5.7.5",
     "mongoose-auto-increment": "^5.0.1",
     "mongoose-datatables": "^3.2.0",
